@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<server>
+	<port>7777</port>
+	<runtimeConfiguration>mdm.runtimeConfig</runtimeConfiguration>
+	<serverComponents>
+
+		<component class="com.ataccama.server.component.derby.DerbyServerComponent">
+			<port>1528</port>
+			<dataDir>../storage/derby</dataDir>
+		</component>
+		
+		<component class="com.ataccama.dqc.web.logging.LoggingComponent" configFile="logging.xml" />
+
+		<component disabled="false" class="com.ataccama.dqc.web.HttpDispatcher">
+			<filters/>
+			<listeners>
+				<listenerBean healthstateRefreshRate="60000" maxWaitingRequests="10" backlog="50" waitingRequestsWarningThreshold="1" port="8888" threadPoolTimeout="10000" healthStateRecoveryTimeout="300000" name="default" threads="50" servletOnly="false" ssl="false">
+					<contexts>
+						<listenerContext path="/" htmlErrorPages="false">
+							<filterChains>
+								<filterChain path="/*" filters="securityFilter">
+									<conditions/>
+								</filterChain>
+							</filterChains>
+							<securityFilter loginUrl="/sso/login" class="com.ataccama.server.http.security.keycloak.KeycloakSecurity">
+								<identityProviders>
+									<identityProvider configName="keycloak-local" clientId="one-mda-server" pattern="/api/mda/**"/>
+									<identityProvider configName="keycloak-local" clientId="one-mda-server" pattern="/api/export/mda/**"/>
+									<identityProvider configName="keycloak-local" clientId="one-mda-server" pattern="/api/userSettings/**"/>
+									<identityProvider configName="keycloak-local" clientId="one-mda-im" pattern="/api/issueTrackerMda/**"/>
+									<identityProvider configName="keycloak-local" clientId="one-mda-im" pattern="/api/dqit/**"/>
+									<identityProvider configName="keycloak-local" clientId="one-mda-server" pattern="/api/graphql/mda/**"/>
+									<identityProvider configName="keycloak-local" clientId="one-mda-im" pattern="/dqitIssueEvent"/>
+									<identityProvider configName="keycloak-local" clientId="one-nme-server" pattern="/soapOverHttp/**"/>
+									<identityProvider configName="keycloak-local" clientId="one-nme-server" pattern="/nme-rest/**"/>
+									<identityProvider configName="keycloak-local" clientId="one-admin-center" pattern="/**"/>
+								</identityProviders>
+								<interceptUrls>
+									<interceptUrl access="permitAll" pattern="/xmlRpcOverHttp/**"/>
+									<interceptUrl access="permitAll" pattern="/soapOverHttp/**"/>
+									<interceptUrl access="permitAll" pattern="/soapServices/**"/>
+									<interceptUrl access="isAuthenticated()" pattern="/api/export/mda"/>
+									<interceptUrl access="isAuthenticated()" pattern="/**"/>
+								</interceptUrls>
+							</securityFilter>
+						</listenerContext>
+					</contexts>
+				</listenerBean>
+			</listeners>
+			<servletFilters/>
+		</component>
+
+		<component class="com.ataccama.server.component.usersettings.UserSettingsComponent">
+			<!-- <userSettingsFactory class="com.ataccama.usersettings.inmemory.InMemoryUserSettingsFactory"/> -->
+			<userSettingsFactory class="com.ataccama.usersettings.jdbc.JdbcUserSettingsFactory" dataSource="mdc_db" prefix="us_"/>
+		</component>
+
+		<component class="com.ataccama.dqc.jms.JmsProviderComponent">
+			<connectionPoolSize>5</connectionPoolSize>
+			<jmsResources>
+				<resource>mdaConnector</resource>
+				<resource>esbEvents</resource>
+			</jmsResources>
+		</component>
+		
+		<component class="com.ataccama.server.component.dqit.DqitServerComponent">
+			<location>/api/dqit</location>
+			<configFile>issue_management/config.xml</configFile>
+		</component>
+		<component class="com.ataccama.epp.mda.DqitMdaServerComponent">
+		</component>
+
+		<component class="com.ataccama.dqc.server.services.HealthStateProviders"
+			pathVariableRefreshRate="60" dataSourceRefreshRate="60" />
+
+		<component class="com.ataccama.dqc.web.console.WebConsoleComponent" />
+
+		<component class="com.ataccama.dqc.web.health.HealthStateWebConsole" />
+		
+		<component class="com.ataccama.dqc.server.services.VersionedFileSystemComponent">
+			<versionedFolders>
+				<versionedFolder>../data/ext/lkp</versionedFolder>
+			</versionedFolders>
+		</component>
+		
+		<component class="com.ataccama.dqc.online.OnlineServicesComponent">
+			<serviceLookupFolders>
+				<configFolder>../services</configFolder>
+			</serviceLookupFolders>
+		</component>
+
+		<component class="com.ataccama.nme.engine.NmeServerComponent">
+			<configFile>nme-config.xml</configFile>
+		</component>
+
+		<component
+			class="com.ataccama.server.component.jms.message.server.JmsMessageServerComponent">
+			<protocol>tcp</protocol>
+			<host>localhost</host>
+			<port>61616</port>
+			<brokerName>JmsComponent</brokerName>
+			<dataDirectory>../storage/jms/data</dataDirectory>
+			<jmxConnectorPort>1099</jmxConnectorPort>
+			<destinations>
+				<destination>
+					<queues>
+						<queue name="esb.event.queue" />
+						<queue name="stream.in.queue" />
+						<queue name="test.queue" />
+					</queues>
+					<topics>
+						<topic name="mda.server.topic" />
+						<topic name="test.topic" />
+					</topics>
+				</destination>
+			</destinations>
+			<systemUsage>
+				<memoryUsage>64</memoryUsage>
+				<storeUsage>200</storeUsage>
+				<tempUsage>100</tempUsage>
+			</systemUsage>
+		</component>
+
+		<component class="com.ataccama.mda.server.MdaBackendComponent">
+			<configFile>mda-config.xml</configFile>
+		</component>
+
+		<!-- <component class="com.ataccama.mda.nme.copy.MdaNmeCopyDbComponent">
+			<dataSource>mda_cache</dataSource>
+			<primaryKeysUsed>true</primaryKeysUsed>
+			<storageDirectory>../storage/mda_cache</storageDirectory>
+		</component>  -->
+		
+		<component class="com.ataccama.adt.web.WorkflowServerComponent">
+			<sources>
+				<source>
+					<path>../workflows</path>
+					<id>WF1</id>
+				</source>
+			</sources>
+			<resourcesFolder>../storage/resources/workflow</resourcesFolder>
+			<stateStorageProvider
+				class="com.ataccama.adt.runtime.state.storage.FileStateStorageProvider" />
+		</component>
+
+		<component
+			class="com.ataccama.adt.scheduler.server.SchedulerServerComponent">
+			<sources>
+				<source>
+					<path>../schedulers</path>
+					<id>S1</id>
+				</source>
+			</sources>
+			<resourcesFolder>../storage/resources/scheduler</resourcesFolder>
+			<resultPersister
+				class="com.ataccama.adt.scheduler.persister.FileStateResultPersister" />
+		</component>
+
+	</serverComponents>
+</server>

@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+<executionPlanConfig>
+	<executionPlans>
+	<!-- 
+		<plan taskId="MasterDataConsolidation">
+			<steps>
+				<step id="Cleanse(product)"/>
+				<step id="Cleanse(address)"/>
+				<step id="Match(product)"/>
+				<step id="CopyColumns(product -(product_has_parent)-&gt; rel_prod2prod, COPY_CLEAN)"/>
+				<step id="Cleanse(party)"/>
+				<step id="Cleanse(id_document)"/>
+				<step id="Cleanse(contract)"/>
+				<step id="CopyColumns(address -(addresses)-&gt; party, COPY_CLEAN)"/>
+				<step id="Cleanse(rel_party2party)"/>
+				<step id="Cleanse(rel_prod2prod)"/>
+				<step id="Cleanse(contact)"/>
+				<step id="CopyColumns(contact -(contacts)-&gt; party, COPY_CLEAN)"/>
+				<step id="CopyColumns(party -(party)-&gt; rel_party2contract, COPY_CLEAN)"/>
+				<step id="CopyColumns(product -(product_has_contract)-&gt; rel_prod2contract, COPY_SOURCE)"/>
+				<step id="Cleanse(consent)"/>
+				<step id="CopyColumns(id_document -(id_documents)-&gt; party, COPY_CLEAN)"/>
+				<step id="Match(party)"/>
+				<step id="CopyColumns(party -(party_parent)-&gt; rel_party2party, COPY_CLEAN)"/>
+				<step id="CopyColumns(party -(party)-&gt; contact, COPY_CLEAN)"/>
+				<step id="CopyColumns(party -(party)-&gt; rel_party2contract, COPY_SOURCE)"/>
+				<step id="CopyColumns(party -(party)-&gt; id_document, COPY_CLEAN)"/>
+				<step id="CopyColumns(party -(party)-&gt; consent, COPY_CLEAN)"/>
+				<step id="Match(consent)"/>
+				<step id="Cleanse(rel_party2contract)"/>
+				<step id="Match(rel_party2contract)"/>
+				<step id="Merge(norm.rel_org_cntrct_i)"/>
+				<step id="CopyColumns(party -(party_child)-&gt; rel_party2party, COPY_CLEAN)"/>
+				<step id="Match(rel_party2party)"/>
+				<step id="Merge(norm.rel_per_per)"/>
+				<step id="Merge(norm.rel_party_party)"/>
+				<step id="Merge(masters.rel_party_party)"/>
+				<step id="Merge(norm.rel_org_org)"/>
+				<step id="Match(contact)"/>
+				<step id="Merge(norm.contact)"/>
+				<step id="Merge(norm.rel_per_cntrct_i)"/>
+				<step id="Merge(masters.contact)"/>
+				<step id="Validate(contact_masters)"/>
+				<step id="Aggregate(party)"/>
+				<step id="Merge(norm.organisation)"/>
+				<step id="Merge(norm.person)"/>
+				<step id="Merge(masters.party)"/>
+				<step id="Validate(party_masters)"/>
+				<step id="Aggregate(consent)"/>
+				<step id="Merge(masters.consent)"/>
+				<step id="CopyColumns(product -(product_has_child)-&gt; rel_prod2prod, COPY_CLEAN)"/>
+				<step id="Match(rel_prod2prod)"/>
+				<step id="Merge(masters.product)"/>
+				<step id="Validate(product_masters)"/>
+				<step id="CopyColumns(party -(party)-&gt; address, COPY_CLEAN)"/>
+				<step id="Match(address)"/>
+				<step id="Merge(norm.address)"/>
+				<step id="Match(id_document)"/>
+				<step id="Merge(norm.id_document)"/>
+				<step id="Merge(masters.id_document)"/>
+				<step id="Merge(masters.rel_prod2prod)"/>
+				<step id="Merge(masters.address)"/>
+			</steps>
+		</plan>
+	-->
+	</executionPlans>
+</executionPlanConfig>

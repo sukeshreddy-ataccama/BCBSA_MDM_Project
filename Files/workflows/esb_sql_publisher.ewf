@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<workflow xmlns:comm="http://www.ataccama.com/purity/comment" xmlns:vis="http://www.ataccama.com/purity/visual" version="12.6.3">
+	<continueOnFailure>true</continueOnFailure>
+	<description>Utility WF to create target ESB DB tables</description>
+	<groups/>
+	<multiplicity>0</multiplicity>
+	<name>Create ESB DB tables</name>
+	<variables>
+		<derived/>
+		<input>
+			<ewfInputVariable name="TASK_NAME"/>
+			<ewfInputVariable name="TASK_ID"/>
+		</input>
+	</variables>
+	<tasks>
+		<task acceptMode="ALL_VALID" name="Create table in DB" description="Simple DDL example using Execute SQL Task" id="10_create_table" priority="0">
+			<executable query="CREATE TABLE PARTY_MAS (N_CMO_COMP_NAME VARCHAR(255), O_CMO_COMP_NAME VARCHAR(255))" connectionName="esb_db" class="com.ataccama.adt.task.exec.EwfSqlTask"/>
+			<comm:comment>Simple DDL example using Execute SQL Task</comm:comment>
+			<vis:visualConstraints bounds="353,126,-1,-1"/>
+		</task>
+		<task acceptMode="ALL_VALID" name="Create table in DB" description="Simple DDL example using Execute SQL Task" id="11_create_table" priority="0">
+			<executable query="CREATE TABLE PARTY (SOURCE_ID VARCHAR(255), N_SRC_COMP_NAME VARCHAR(255), O_SRC_COMP_NAME VARCHAR(255))" connectionName="esb_db" class="com.ataccama.adt.task.exec.EwfSqlTask"/>
+			<comm:comment>Simple DDL example using Execute SQL Task</comm:comment>
+			<vis:visualConstraints bounds="353,243,-1,-1"/>
+		</task>
+		<task acceptMode="AT_LEAST_ONE" name="Start" id="01_start" priority="0">
+			<executable class="com.ataccama.adt.task.exec.EwfSynchronizerTask"/>
+			<vis:visualConstraints bounds="131,181,-1,-1"/>
+		</task>
+	</tasks>
+	<links>
+		<link from="01_start" to="10_create_table" type="NORMAL">
+			<condition>toInteger(TASK_ID)=1</condition>
+			<vis:visualConstraints>
+				<vis:bendpoints/>
+			</vis:visualConstraints>
+		</link>
+		<link from="01_start" to="11_create_table" type="NORMAL">
+			<condition>toInteger(TASK_ID)=1</condition>
+			<vis:visualConstraints>
+				<vis:bendpoints/>
+			</vis:visualConstraints>
+		</link>
+	</links>
+</workflow>

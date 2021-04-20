@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+	<globalPermissions>
+		<constraint permission="seeOthersIssues">
+			<conditions>
+				<condition class="com.ataccama.epp.contrib.security.UserIsInRole" roles="MDA_superuser"/>
+			</conditions>
+		</constraint>
+		<constraint permission="editOthersIssues">
+			<conditions>
+				<condition class="com.ataccama.epp.contrib.security.UserIsInRole" roles="MDA_superuser"/>
+			</conditions>
+		</constraint>
+		<constraint permission="deleteOthersIssues">
+			<conditions>
+				<condition class="com.ataccama.epp.contrib.security.UserIsInRole" roles="MDA_superuser"/>
+			</conditions>
+		</constraint>
+		<constraint permission="createIssues">
+			<conditions>
+				<condition class="com.ataccama.epp.contrib.security.UserIsInRole" roles="MDA_superuser,MDA_im_steward"/>
+			</conditions>
+		</constraint>
+		<constraint permission="changeStep">
+			<conditions>
+				<condition class="com.ataccama.epp.contrib.security.UserIsInRole" roles="MDA_superuser"/>
+			</conditions>
+		</constraint>
+	</globalPermissions>
+	<systems>
+		<system name="crm"/>
+	</systems>
+	<navigatorConfiguration>
+		<pageSize>25</pageSize>
+		<columns>
+			<column name="id"/>
+			<column name="severity"/>
+			<column name="system"/>
+			<column name="entity"/>
+			<column name="score"/>
+			<column name="records"/>
+			<column name="label"/>
+			<column name="description"/>
+			<column name="assignee"/>
+			<column name="lastChange"/>
+		</columns>
+		<defaultSortColumn>id</defaultSortColumn>
+		<defaultSortDirection>ASCENDING</defaultSortDirection>
+	</navigatorConfiguration>
+	<customAttributes>
+		<customAttribute label="Problem" name="description_text" secure="false">
+			<type class="com.ataccama.epp.core.attributes.Text"/>
+			<showFilter>true</showFilter>
+		</customAttribute>
+		<customAttribute label="Actions" name="action" secure="false">
+			<type class="com.ataccama.epp.core.attributes.Text"/>
+			<showFilter>true</showFilter>
+		</customAttribute>
+	</customAttributes>
+	<issueTypes>
+		<issueType class="com.ataccama.epp.mda.issuetype.MdaIssueType" id="mda_issue">
+			<title>MDA Issue</title>
+			<workflowId>simple</workflowId>
+			<entity>mda</entity>
+			<reportsMessages>false</reportsMessages>
+			<attributes/>
+			<customAttributes>
+				<attribute name="description_text"/>
+				<attribute name="action"/>
+			</customAttributes>
+			<roles/>
+		</issueType>
+	</issueTypes>
+	<messageMappings/>
+</metadata>

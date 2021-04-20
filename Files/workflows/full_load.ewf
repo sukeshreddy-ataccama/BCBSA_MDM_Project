@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<workflow xmlns:vis="http://www.ataccama.com/purity/visual" version="12.6.3">
+	<continueOnFailure>true</continueOnFailure>
+	<groups/>
+	<multiplicity>0</multiplicity>
+	<name>Full Load Processing</name>
+	<variables>
+		<derived/>
+		<input/>
+	</variables>
+	<tasks>
+		<task acceptMode="ALL_VALID" name="Perform CRM batch load" id="021_Run_Batch_Load" priority="0">
+			<executable operationName="crm_full" class="com.ataccama.nme.ext.workflow.RunNmeBatchLoad">
+				<parameters/>
+			</executable>
+			<vis:visualConstraints bounds="54,42,-1,-1"/>
+		</task>
+		<task acceptMode="ALL_VALID" name="Perform Life batch load" id="022_Run_Batch_Load" priority="0">
+			<executable operationName="life_full" class="com.ataccama.nme.ext.workflow.RunNmeBatchLoad">
+				<parameters/>
+			</executable>
+			<vis:visualConstraints bounds="198,42,-1,-1"/>
+		</task>
+	</tasks>
+	<links>
+		<link from="021_Run_Batch_Load" to="022_Run_Batch_Load" type="NORMAL"/>
+	</links>
+</workflow>

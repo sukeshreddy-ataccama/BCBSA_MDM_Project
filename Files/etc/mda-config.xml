@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mda-config>
+	<templatePath>gui_templates</templatePath> 
+	<gui defaultLocale="en"/>
+	<permissions>mda-permissions.gen.xml</permissions>
+	<workflow>mda-workflow.gen.xml</workflow>
+	<labelFile>mda-label.gen.properties</labelFile>
+	<validations>mda-validations.gen.xml</validations>
+	<lookupsFile>mda-lookups.gen.xml</lookupsFile>
+	<dataSetsFile>mda-datasets.gen.xml</dataSetsFile>
+	<filterDefinitionsFile>mda-search.gen.xml</filterDefinitionsFile>
+	<displaySettings>mda-display.gen.xml</displaySettings>
+	<samples>mda-samples.gen.xml</samples>
+	<dataNavigation>mda-data-navigation.gen.xml</dataNavigation>
+	<hierarchy>mda-hierarchies.gen.xml</hierarchy>
+	<dashboardSettings>mda-dashboard.gen.xml</dashboardSettings>
+	<audit>
+		<writers>
+			<writer id="loggerWriter">
+				<loggerConfig>mda-audit.gen.xml</loggerConfig>
+			</writer>
+		</writers>
+	</audit>
+	<notificationManager class="com.ataccama.mda.internal.core.notifications.MdaNotificationManagerKeycloak">
+		<keycloakConfigName>keycloak-local</keycloakConfigName>
+		<keycloakClientId>one-service-account</keycloakClientId>
+    </notificationManager>
+	<!-- <aiConfig>
+    	<protocol>http</protocol>
+       	<host>localhost</host>
+       	<port>8042</port>
+   	</aiConfig> -->
+</mda-config>

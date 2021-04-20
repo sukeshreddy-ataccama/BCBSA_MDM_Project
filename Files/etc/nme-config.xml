@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<config>
+	<persistenceLayers>
+		<persistenceLayer class="com.ataccama.nme.persistence.vldb.VldbPersistenceFactory">
+			<dataSource>mdc_db</dataSource>
+			<prefix>I_</prefix>
+		</persistenceLayer>
+	</persistenceLayers>
+	
+	<model>
+		<models>
+			<consolidation>
+				<persistenceLayer class="com.ataccama.nme.persistence.vldb.VldbPersistenceFactory">
+					<dataSource>mdc_db</dataSource>
+					<prefix>C_</prefix>
+				</persistenceLayer>
+				<configFile>nme-model.gen.xml</configFile>
+				<eventHandlersConfigFile>nme-event_handler.gen.xml</eventHandlersConfigFile>
+				<executionPlanConfigFile>nme-consolidation-plan.xml</executionPlanConfigFile>
+			</consolidation>
+			<systemOfRecord>
+				<persistenceLayer class="com.ataccama.nme.persistence.vldb.VldbPersistenceFactory">
+					<dataSource>mdc_db</dataSource>
+					<prefix>S_</prefix>
+				</persistenceLayer>
+				<configFile>nme-sor.model.gen.xml</configFile>
+				<eventHandlersConfigFile>nme-sor-event_handler.gen.xml</eventHandlersConfigFile>
+			</systemOfRecord>
+		</models>
+	</model>
+	
+	<batchLayerDefinitionFile>nme-batch.gen.xml</batchLayerDefinitionFile>
+	<serviceDefinitionFile>nme-services.gen.xml</serviceDefinitionFile>
+	<taskExecutorConfigFile>nme-executor.xml</taskExecutorConfigFile>
+	<streamDefinitionFile>nme-stream.gen.xml</streamDefinitionFile>
+	<!--<securityConfigFile>nme-security.xml</securityConfigFile>-->
+	<plugins>
+       	<plugin class="com.ataccama.nme.rest.NmeRestPlugin" path="/nme-rest" listener="default" prettyPrint="true" /> 
+        <plugin class="com.ataccama.nme.history.NmeHistoryPlugin">
+            <persistenceLayer class="com.ataccama.nme.persistence.vldb.VldbPersistenceFactory">
+                <dataSource>mdc_db</dataSource>
+                <prefix>H_</prefix>
+            </persistenceLayer>
+            <configFile>nme-history.gen.xml</configFile>
+            <storageDirectory>../storage/history</storageDirectory>
+        </plugin>
+        <!-- <plugin class="com.ataccama.nme.grpc.GRpcServerPlugin" port="8581" batchSize="1000"/> -->
+    </plugins>
+</config>

@@ -1,0 +1,36 @@
+
+2020-05-27 22:03:10 INFO: starting...
+2020-05-27 22:03:10 INFO: Executing SQL command: DROP TABLE "EXTERNAL".INSURED_EVENTS
+2020-05-27 22:03:10 ERROR: Error processing taskcom.ataccama.dqc.commons.sql.atc.WrappedSqlException: Schema 'EXTERNAL' does not exist
+while executing DROP TABLE "EXTERNAL".INSURED_EVENTS
+	at com.ataccama.dqc.commons.util.sql.SqlUtils.wrapException(SqlUtils.java:561)
+	at com.ataccama.dqc.internal.commons.sql.AtcConnection.prepareStatement(AtcConnection.java:252)
+	at com.ataccama.dqc.commons.sql.decorator.ConnectionDecorator.prepareStatement(ConnectionDecorator.java:161)
+	at com.ataccama.dqc.commons.sql.impl.ConnectionImplBase.prepareStatement(ConnectionImplBase.java:49)
+	at com.ataccama.dqc.model.internal.modelimpl.sql.MonitoringConnection.prepareStatement(MonitoringConnection.java:46)
+	at com.ataccama.adt.internal.sql.EwfSqlQueryProcessor$EwfQuery.createStatement(EwfSqlQueryProcessor.java:327)
+	at com.ataccama.adt.internal.sql.EwfSqlQueryProcessor$EwfQuery.execute(EwfSqlQueryProcessor.java:302)
+	at com.ataccama.adt.internal.sql.EwfSqlQueryProcessor$EwfQuery.access$100(EwfSqlQueryProcessor.java:266)
+	at com.ataccama.adt.internal.sql.EwfSqlQueryProcessor.runQuery(EwfSqlQueryProcessor.java:154)
+	at com.ataccama.adt.task.exec.EwfSqlTask$EwfSqlTaskInstance.run(EwfSqlTask.java:123)
+	at com.ataccama.adt.internal.core.runtime.EwfTaskProcessor$ThreadSlot.run(EwfTaskProcessor.java:372)
+Caused by: java.sql.SQLSyntaxErrorException: Schema 'EXTERNAL' does not exist
+	at org.apache.derby.client.am.SQLExceptionFactory.getSQLException(Unknown Source)
+	at org.apache.derby.client.am.SqlException.getSQLException(Unknown Source)
+	at org.apache.derby.client.am.ClientConnection.prepareStatement(Unknown Source)
+	at com.ataccama.dqc.commons.sql.decorator.ConnectionDecorator.prepareStatement(ConnectionDecorator.java:161)
+	at com.ataccama.dqc.internal.commons.sql.AtcConnection.prepareStatement(AtcConnection.java:248)
+	... 9 more
+Caused by: ERROR 42Y07: Schema 'EXTERNAL' does not exist
+	at org.apache.derby.client.am.ClientStatement.completeSqlca(Unknown Source)
+	at org.apache.derby.client.net.NetStatementReply.parsePrepareError(Unknown Source)
+	at org.apache.derby.client.net.NetStatementReply.parsePRPSQLSTTreply(Unknown Source)
+	at org.apache.derby.client.net.NetStatementReply.readPrepareDescribeOutput(Unknown Source)
+	at org.apache.derby.client.net.StatementReply.readPrepareDescribeOutput(Unknown Source)
+	at org.apache.derby.client.net.NetStatement.readPrepareDescribeOutput_(Unknown Source)
+	at org.apache.derby.client.am.ClientStatement.readPrepareDescribeOutput(Unknown Source)
+	at org.apache.derby.client.am.ClientPreparedStatement.readPrepareDescribeInputOutput(Unknown Source)
+	at org.apache.derby.client.am.ClientPreparedStatement.flowPrepareDescribeInputOutput(Unknown Source)
+	at org.apache.derby.client.am.ClientPreparedStatement.prepare(Unknown Source)
+	at org.apache.derby.client.am.ClientConnection.prepareStatementX(Unknown Source)
+	... 12 more

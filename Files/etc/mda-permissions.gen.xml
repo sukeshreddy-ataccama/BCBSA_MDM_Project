@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<permissions>
+	<issueRoles>
+		<role name="MDA_viewer"/>
+		<role name="MDA_user"/>
+		<role name="MDA_superuser"/>
+	</issueRoles>
+	<keycloakConfigName>keycloak-local</keycloakConfigName>
+	<keycloakClientId>one-service-account</keycloakClientId>
+	<securityProviders>
+		<securityProvider class="com.ataccama.mda.core.config.security.MdaDefaultPermissionsProvider">
+			<roles>
+				<viewRoles>
+					<role name="MDA_viewer"/>
+				</viewRoles>
+				<userRoles>
+					<role name="MDA_user"/>
+				</userRoles>
+				<adminRoles>
+					<role name="MDA_superuser"/>
+				</adminRoles>
+			</roles>
+		</securityProvider>
+	</securityProviders>
+</permissions>

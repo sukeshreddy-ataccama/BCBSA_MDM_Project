@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflows>
+    <workflowProvider class="com.ataccama.mda.core.config.workflow.MdaWorkflowProvider">
+        <workflowBean class="com.ataccama.mda.core.config.workflow.MdaXmlWorkflowProviderConfig">
+            <workflows>
+                <workflow name="sor">
+                    <steps>
+                        <step first="true" name="draft"/>
+                    </steps>
+                    <transitions/>
+                </workflow>
+                <workflow name="consolidation">
+                    <steps>
+                        <step first="true" name="draft"/>
+                        <step name="waiting_for_publish"/>
+                    </steps>
+                    <transitions>
+                        <transition name="move_publish" origin="draft" target="waiting_for_publish"/>
+                        <transition name="return_draft" origin="waiting_for_publish" target="draft"/>
+                    </transitions>
+                </workflow>
+            </workflows>
+        </workflowBean>
+    </workflowProvider>
+</workflows>

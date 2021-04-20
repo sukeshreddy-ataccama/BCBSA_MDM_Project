@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<WorkflowInstanceState>
+	<forcedResume>false</forcedResume>
+	<hostInfo hostName="PZACEK" hostPort="7777" hostAddress="192.168.99.1"/>
+	<id>3</id>
+	<linkEvaluations>
+		<linkEvaluationBean evaluation="ACCEPTED" sourceId="Synchronize Tasks 2" targetId="external.interactions"/>
+		<linkEvaluationBean evaluation="ACCEPTED" sourceId="external.interactions" targetId="load_external_entities.plan"/>
+		<linkEvaluationBean evaluation="SKIPPED_FAILURE" sourceId="drop external.insured_events" targetId="external.insured_events"/>
+		<linkEvaluationBean evaluation="ACCEPTED" sourceId="Synchronize Tasks" targetId="external.insured_events"/>
+		<linkEvaluationBean evaluation="ACCEPTED" sourceId="drop external.interactions" targetId="Synchronize Tasks 2"/>
+		<linkEvaluationBean evaluation="ACCEPTED" sourceId="external.insured_events" targetId="load_external_entities.plan"/>
+		<linkEvaluationBean evaluation="ACCEPTED" sourceId="drop external.insured_events" targetId="Synchronize Tasks"/>
+		<linkEvaluationBean evaluation="SKIPPED_FAILURE" sourceId="drop external.interactions" targetId="external.interactions"/>
+	</linkEvaluations>
+	<started>2020-05-27 22:03:10</started>
+	<state>FINISHED_OK</state>
+	<stopped>2020-05-27 22:03:11</stopped>
+	<taskVariables/>
+	<tasks>
+		<workflowTaskPersistModelBean stopped="2020-05-27 22:03:10" started="2020-05-27 22:03:10" id="external.interactions" state="FINISHED_OK">
+			<compensationStates/>
+		</workflowTaskPersistModelBean>
+		<workflowTaskPersistModelBean stopped="2020-05-27 22:03:10" started="2020-05-27 22:03:10" id="Synchronize Tasks" state="FINISHED_OK">
+			<compensationStates/>
+		</workflowTaskPersistModelBean>
+		<workflowTaskPersistModelBean stopped="2020-05-27 22:03:11" started="2020-05-27 22:03:10" id="load_external_entities.plan" state="FINISHED_OK">
+			<compensationStates/>
+		</workflowTaskPersistModelBean>
+		<workflowTaskPersistModelBean stopped="2020-05-27 22:03:10" started="2020-05-27 22:03:10" id="drop external.insured_events" state="FINISHED_FAILURE">
+			<compensationStates/>
+			<exception>com.ataccama.dqc.commons.sql.atc.WrappedSqlException: Schema &#39;EXTERNAL&#39; does not exist
+while executing DROP TABLE &quot;EXTERNAL&quot;.INSURED_EVENTS
+	at com.ataccama.dqc.commons.util.sql.SqlUtils.wrapException(SqlUtils.java:561)
+	at com.ataccama.dqc.internal.commons.sql.AtcConnection.prepareStatement(AtcConnection.java:252)
+	at com.ataccama.dqc.commons.sql.decorator.ConnectionDecorator.prepareStatement(ConnectionDecorator.java:161)
+	at com.ataccama.dqc.commons.sql.impl.ConnectionImplBase.prepareStatement(ConnectionImplBase.java:49)
+	at com.ataccama.dqc.model.internal.modelimpl.sql.MonitoringConnection.prepareStatement(MonitoringConnection.java:46)
+	at com.ataccama.adt.internal.sql.EwfSqlQueryProcessor$EwfQuery.createStatement(EwfSqlQueryProcessor.java:327)
+	at com.ataccama.adt.internal.sql.EwfSqlQueryProcessor$EwfQuery.execute(EwfSqlQueryProcessor.java:302)
+	at com.ataccama.adt.internal.sql.EwfSqlQueryProcessor$EwfQuery.access$100(EwfSqlQueryProcessor.java:266)
+	at com.ataccama.adt.internal.sql.EwfSqlQueryProcessor.runQuery(EwfSqlQueryProcessor.java:154)
+	at com.ataccama.adt.task.exec.EwfSqlTask$EwfSqlTaskInstance.run(EwfSqlTask.java:123)
+	at com.ataccama.adt.internal.core.runtime.EwfTaskProcessor$ThreadSlot.run(EwfTaskProcessor.java:372)
+Caused by: java.sql.SQLSyntaxErrorException: Schema &#39;EXTERNAL&#39; does not exist
+	at org.apache.derby.client.am.SQLExceptionFactory.getSQLException(Unknown Source)
+	at org.apache.derby.client.am.SqlException.getSQLException(Unknown Source)
+	at org.apache.derby.client.am.ClientConnection.prepareStatement(Unknown Source)
+	at com.ataccama.dqc.commons.sql.decorator.ConnectionDecorator.prepareStatement(ConnectionDecorator.java:161)
+	at com.ataccama.dqc.internal.commons.sql.AtcConnection.prepareStatement(AtcConnection.java:248)
+	... 9 more
+Caused by: ERROR 42Y07: Schema &#39;EXTERNAL&#39; does not exist
+	at org.apache.derby.client.am.ClientStatement.completeSqlca(Unknown Source)
+	at org.apache.derby.client.net.NetStatementReply.parsePrepareError(Unknown Source)
+	at org.apache.derby.client.net.NetStatementReply.parsePRPSQLSTTreply(Unknown Source)
+	at org.apache.derby.client.net.NetStatementReply.readPrepareDescribeOutput(Unknown Source)
+	at org.apache.derby.client.net.StatementReply.readPrepareDescribeOutput(Unknown Source)
+	at org.apache.derby.client.net.NetStatement.readPrepareDescribeOutput_(Unknown Source)
+	at org.apache.derby.client.am.ClientStatement.readPrepareDescribeOutput(Unknown Source)
+	at org.apache.derby.client.am.ClientPreparedStatement.readPrepareDescribeInputOutput(Unknown Source)
+	at org.apache.derby.client.am.ClientPreparedStatement.flowPrepareDescribeInputOutput(Unknown Source)
+	at org.apache.derby.client.am.ClientPreparedStatement.prepare(Unknown Source)
+	at org.apache.derby.client.am.ClientConnection.prepareStatementX(Unknown Source)
+	... 12 more
+</exception>
+		</workflowTaskPersistModelBean>
+		<workflowTaskPersistModelBean stopped="2020-05-27 22:03:10" started="2020-05-27 22:03:10" id="Synchronize Tasks 2" state="FINISHED_OK">
+			<compensationStates/>
+		</workflowTaskPersistModelBean>
+		<workflowTaskPersistModelBean stopped="2020-05-27 22:03:10" started="2020-05-27 22:03:10" id="drop external.interactions" state="FINISHED_FAILURE">
+			<compensationStates/>
+			<exception>com.ataccama.dqc.commons.sql.atc.WrappedSqlException: Schema &#39;EXTERNAL&#39; does not exist
+while executing DROP TABLE &quot;EXTERNAL&quot;.INTERACTIONS
+	at com.ataccama.dqc.commons.util.sql.SqlUtils.wrapException(SqlUtils.java:561)
+	at com.ataccama.dqc.internal.commons.sql.AtcConnection.prepareStatement(AtcConnection.java:252)
+	at com.ataccama.dqc.commons.sql.decorator.ConnectionDecorator.prepareStatement(ConnectionDecorator.java:161)
+	at com.ataccama.dqc.commons.sql.impl.ConnectionImplBase.prepareStatement(ConnectionImplBase.java:49)
+	at com.ataccama.dqc.model.internal.modelimpl.sql.MonitoringConnection.prepareStatement(MonitoringConnection.java:46)
+	at com.ataccama.adt.internal.sql.EwfSqlQueryProcessor$EwfQuery.createStatement(EwfSqlQueryProcessor.java:327)
+	at com.ataccama.adt.internal.sql.EwfSqlQueryProcessor$EwfQuery.execute(EwfSqlQueryProcessor.java:302)
+	at com.ataccama.adt.internal.sql.EwfSqlQueryProcessor$EwfQuery.access$100(EwfSqlQueryProcessor.java:266)
+	at com.ataccama.adt.internal.sql.EwfSqlQueryProcessor.runQuery(EwfSqlQueryProcessor.java:154)
+	at com.ataccama.adt.task.exec.EwfSqlTask$EwfSqlTaskInstance.run(EwfSqlTask.java:123)
+	at com.ataccama.adt.internal.core.runtime.EwfTaskProcessor$ThreadSlot.run(EwfTaskProcessor.java:372)
+Caused by: java.sql.SQLSyntaxErrorException: Schema &#39;EXTERNAL&#39; does not exist
+	at org.apache.derby.client.am.SQLExceptionFactory.getSQLException(Unknown Source)
+	at org.apache.derby.client.am.SqlException.getSQLException(Unknown Source)
+	at org.apache.derby.client.am.ClientConnection.prepareStatement(Unknown Source)
+	at com.ataccama.dqc.commons.sql.decorator.ConnectionDecorator.prepareStatement(ConnectionDecorator.java:161)
+	at com.ataccama.dqc.internal.commons.sql.AtcConnection.prepareStatement(AtcConnection.java:248)
+	... 9 more
+Caused by: ERROR 42Y07: Schema &#39;EXTERNAL&#39; does not exist
+	at org.apache.derby.client.am.ClientStatement.completeSqlca(Unknown Source)
+	at org.apache.derby.client.net.NetStatementReply.parsePrepareError(Unknown Source)
+	at org.apache.derby.client.net.NetStatementReply.parsePRPSQLSTTreply(Unknown Source)
+	at org.apache.derby.client.net.NetStatementReply.readPrepareDescribeOutput(Unknown Source)
+	at org.apache.derby.client.net.StatementReply.readPrepareDescribeOutput(Unknown Source)
+	at org.apache.derby.client.net.NetStatement.readPrepareDescribeOutput_(Unknown Source)
+	at org.apache.derby.client.am.ClientStatement.readPrepareDescribeOutput(Unknown Source)
+	at org.apache.derby.client.am.ClientPreparedStatement.readPrepareDescribeInputOutput(Unknown Source)
+	at org.apache.derby.client.am.ClientPreparedStatement.flowPrepareDescribeInputOutput(Unknown Source)
+	at org.apache.derby.client.am.ClientPreparedStatement.prepare(Unknown Source)
+	at org.apache.derby.client.am.ClientConnection.prepareStatementX(Unknown Source)
+	... 12 more
+</exception>
+		</workflowTaskPersistModelBean>
+		<workflowTaskPersistModelBean stopped="2020-05-27 22:03:10" started="2020-05-27 22:03:10" id="external.insured_events" state="FINISHED_OK">
+			<compensationStates/>
+		</workflowTaskPersistModelBean>
+	</tasks>
+	<wfTimestamp>1970-01-01 01:00:00</wfTimestamp>
+	<wfVariables>
+		<variableBean name="ewf_execution_id" type="STRING" value="3"/>
+		<variableBean name="ewf_workflow_id" type="STRING" value="WF1:load_external_entities.ewf"/>
+		<variableBean name="ewf_private_folder" type="STRING" value="C:\_Git\_examples\content\modules\MDC_Models\src\GeneralMDM\Files\storage\resources\workflow\wfinst_3"/>
+		<variableBean name="ewf_user_name" type="STRING" value="jane.smith"/>
+	</wfVariables>
+	<workflowId>WF1:load_external_entities.ewf</workflowId>
+</WorkflowInstanceState>

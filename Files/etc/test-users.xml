@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-users>
+    <users>
+        <user username="admin" password="admin" roles="MDA_user,MDA_superuser,MDA_im_steward"/>
+        <user username="system" password="a" roles="MDA_user,MDA_it_admin,MDA_admin" />
+        <user username="alice" password="a" roles="MDA_user,MDA_it_user" />
+        <user username="bob" password="a" roles="MDA_user,MDA_browse_all,MDA_it_worker,MDA_worker"/>
+        <user username="carol" password="a" roles="MDA_user,MDA_it_supervisor,MDA_supervisor" />
+        <user username="Barbara" password="a" roles="MDA_user,MDA_browse_all"/>
+        <user username="George" password="a" roles="MDA_user,MDA_supervisor"/>
+        <user username="Mark" password="a" roles="MDA_user,MDA_full_party_domain,MDA_matching_exception"/>
+        <user username="Paul" password="a" roles="MDA_user,MDA_full_party_domain,MDA_publish"/>
+        <user username="Anne" password="a" roles="MDA_user,MDA_activity,MDA_publish"/>
+        <user username="Chris" password="a" roles="MDA_user,MDA_create_all,MDA_edit,MDA_full_party_domain,MDA_publish,MDA_revert"/>
+        <user username="browse_all" password="a" roles="MDA_user,MDA_browse_all"/>
+        <user username="edit" password="a" roles="MDA_user,MDA_edit,MDA_browse_all"/>
+        <user username="matching_exception" password="a" roles="MDA_user,MDA_matching_exception,MDA_browse_all"/>
+        <user username="activity" password="a" roles="MDA_user,MDA_activity,MDA_browse_all"/>
+        <user username="create_all" password="a" roles="MDA_user,MDA_create_all,MDA_browse_all"/>
+        <user username="publish" password="a" roles="MDA_user,MDA_publish,MDA_browse_all"/>
+        <user username="revert" password="a" roles="MDA_user,MDA_revert,MDA_browse_all"/>
+    </users>
+</test-users>
+

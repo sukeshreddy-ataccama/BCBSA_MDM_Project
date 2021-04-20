@@ -1,0 +1,997 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<purity-config version="12.6.1">
+	<references/>
+	<component-mappings>
+		<propertyMappings/>
+	</component-mappings>
+
+<!-- (Alter Format) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" id="Alter Format">
+		<properties>
+			<addedColumns>
+				<addedColumn name="resourceID" type="STRING">
+					<expression>substr(id,lastIndexOf(id,&#39;-&#39;)+1,35)
+
+//right(id,-1)//resourceID
+
+/*
+CASE (
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;LOCATION&quot;),				substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,8),
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;LOCATIONPROVIDER&quot;),		substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,16),
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;PROVIDERLOCATION&quot;),		substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,16),
+Field_1
+)
+*/</expression>
+				</addedColumn>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="72,480,-1,-1"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="out" step="Alter Format"/>
+		<target endpoint="in" step="OrgAff_root_out"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Alter Format 1) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" id="Alter Format 1">
+		<properties>
+			<addedColumns>
+				<addedColumn name="resourceID" type="STRING">
+					<expression>substr(id,lastIndexOf(id,&#39;-&#39;)+1,35)
+
+//right(id,-1)//resourceID
+
+/*
+CASE (
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;LOCATION&quot;),				substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,8),
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;LOCATIONPROVIDER&quot;),		substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,16),
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;PROVIDERLOCATION&quot;),		substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,16),
+Field_1
+)
+*/</expression>
+				</addedColumn>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="240,480,-1,-1"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="out" step="Alter Format 1"/>
+		<target endpoint="in" step="OrgAff_period"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Alter Format 2) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" id="Alter Format 2">
+		<properties>
+			<addedColumns>
+				<addedColumn name="resourceID" type="STRING">
+					<expression>substr(id,lastIndexOf(id,&#39;-&#39;)+1,35)
+
+//right(id,-1)//resourceID
+
+/*
+CASE (
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;LOCATION&quot;),				substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,8),
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;LOCATIONPROVIDER&quot;),		substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,16),
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;PROVIDERLOCATION&quot;),		substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,16),
+Field_1
+)
+*/</expression>
+				</addedColumn>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="408,480,-1,-1"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="out" step="Alter Format 2"/>
+		<target endpoint="in" step="OrgAff_specialty"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Alter Format 3) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" id="Alter Format 3">
+		<properties>
+			<addedColumns>
+				<addedColumn name="resourceID" type="STRING">
+					<expression>substr(id,lastIndexOf(id,&#39;-&#39;)+1,35)
+
+//right(id,-1)//resourceID
+
+/*
+CASE (
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;LOCATION&quot;),				substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,8),
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;LOCATIONPROVIDER&quot;),		substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,16),
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;PROVIDERLOCATION&quot;),		substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,16),
+Field_1
+)
+*/</expression>
+				</addedColumn>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="576,480,-1,-1"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="out" step="Alter Format 3"/>
+		<target endpoint="in" step="OrgAff_location"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Alter Format 4) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" id="Alter Format 4">
+		<properties>
+			<addedColumns>
+				<addedColumn name="resourceID" type="STRING">
+					<expression>substr(id,lastIndexOf(id,&#39;-&#39;)+1,35)
+
+//right(id,-1)//resourceID
+
+/*
+CASE (
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;LOCATION&quot;),				substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,8),
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;LOCATIONPROVIDER&quot;),		substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,16),
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;PROVIDERLOCATION&quot;),		substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,16),
+Field_1
+)
+*/</expression>
+				</addedColumn>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="744,480,-1,-1"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="out" step="Alter Format 4"/>
+		<target endpoint="in" step="OrgAff_coding"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Alter Format 5) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" id="Alter Format 5">
+		<properties>
+			<addedColumns>
+				<addedColumn name="resourceID" type="STRING">
+					<expression>substr(id,lastIndexOf(id,&#39;-&#39;)+1,35)
+
+//right(id,-1)//resourceID
+
+/*
+CASE (
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;LOCATION&quot;),				substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,8),
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;LOCATIONPROVIDER&quot;),		substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,16),
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;PROVIDERLOCATION&quot;),		substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,16),
+Field_1
+)
+*/</expression>
+				</addedColumn>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="912,480,-1,-1"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="out" step="Alter Format 5"/>
+		<target endpoint="in" step="OrgAff_identifier"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Alter Format 6) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" id="Alter Format 6">
+		<properties>
+			<addedColumns>
+				<addedColumn name="resourceID" type="STRING">
+					<expression>substr(id,lastIndexOf(id,&#39;-&#39;)+1,35)
+
+//right(id,-1)//resourceID
+
+/*
+CASE (
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;LOCATION&quot;),				substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,8),
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;LOCATIONPROVIDER&quot;),		substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,16),
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;PROVIDERLOCATION&quot;),		substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,16),
+Field_1
+)
+*/</expression>
+				</addedColumn>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="1080,480,-1,-1"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="out" step="Alter Format 6"/>
+		<target endpoint="in" step="OrgAff_extension"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Alter Format 7) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" id="Alter Format 7">
+		<properties>
+			<addedColumns>
+				<addedColumn name="resourceID" type="STRING">
+					<expression>substr(id,lastIndexOf(id,&#39;-&#39;)+1,35)
+
+//right(id,-1)//resourceID
+
+/*
+CASE (
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;LOCATION&quot;),				substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,8),
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;LOCATIONPROVIDER&quot;),		substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,16),
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;PROVIDERLOCATION&quot;),		substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,16),
+Field_1
+)
+*/</expression>
+				</addedColumn>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="1248,480,-1,-1"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="out" step="Alter Format 7"/>
+		<target endpoint="in" step="OrgAff_ext_newPatients"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Alter Format 8) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" id="Alter Format 8">
+		<properties>
+			<addedColumns>
+				<addedColumn name="resourceID" type="STRING">
+					<expression>substr(id,lastIndexOf(id,&#39;-&#39;)+1,35)
+
+//right(id,-1)//resourceID
+
+/*
+CASE (
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;LOCATION&quot;),				substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,8),
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;LOCATIONPROVIDER&quot;),		substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,16),
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;PROVIDERLOCATION&quot;),		substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,16),
+Field_1
+)
+*/</expression>
+				</addedColumn>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="1464,480,-1,-1"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="out" step="Alter Format 8"/>
+		<target endpoint="in" step="OrgAff_healthcareService"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Alter Format 9) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.flow.AlterFormat" disabled="false" id="Alter Format 9">
+		<properties>
+			<addedColumns>
+				<addedColumn name="resourceID" type="STRING">
+					<expression>substr(id,lastIndexOf(id,&#39;-&#39;)+1,35)
+
+//right(id,-1)//resourceID
+
+/*
+CASE (
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;LOCATION&quot;),				substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,8),
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;LOCATIONPROVIDER&quot;),		substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,16),
+containsWord(UPPER(replace(replace(Field_1,&quot;-&quot;,&quot; &quot;),&quot;&quot;&quot;&quot;,&quot; &quot;)),&quot;PROVIDERLOCATION&quot;),		substr(Field_1,lastIndexOf(Field_1,&#39;-&#39;)+1,16),
+Field_1
+)
+*/</expression>
+				</addedColumn>
+			</addedColumns>
+			<removedColumns/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="1680,480,-1,-1"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="out" step="Alter Format 9"/>
+		<target endpoint="in" step="OrgAff_participatingOrganization"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Filter) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.conditions.Filter" disabled="false" id="Filter">
+		<properties condition="resourceType = &#39;OrganizationAffiliation&#39;"/>
+		<visual-constraints layout="vertical" bounds="72,384,-1,-1"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="out" step="Filter"/>
+		<target endpoint="in" step="Alter Format"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Filter 1) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.conditions.Filter" disabled="false" id="Filter 1">
+		<properties condition="resourceType = &#39;OrganizationAffiliation&#39;"/>
+		<visual-constraints layout="vertical" bounds="240,384,-1,-1"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="out" step="Filter 1"/>
+		<target endpoint="in" step="Alter Format 1"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Filter 2) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.conditions.Filter" disabled="false" id="Filter 2">
+		<properties condition="resourceType = &#39;OrganizationAffiliation&#39;"/>
+		<visual-constraints layout="vertical" bounds="408,384,-1,-1"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="out" step="Filter 2"/>
+		<target endpoint="in" step="Alter Format 2"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Filter 3) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.conditions.Filter" disabled="false" id="Filter 3">
+		<properties condition="resourceType = &#39;OrganizationAffiliation&#39;"/>
+		<visual-constraints layout="vertical" bounds="576,384,-1,-1"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="out" step="Filter 3"/>
+		<target endpoint="in" step="Alter Format 3"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Filter 4) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.conditions.Filter" disabled="false" id="Filter 4">
+		<properties condition="resourceType = &#39;OrganizationAffiliation&#39;"/>
+		<visual-constraints layout="vertical" bounds="744,384,-1,-1"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="out" step="Filter 4"/>
+		<target endpoint="in" step="Alter Format 4"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Filter 5) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.conditions.Filter" disabled="false" id="Filter 5">
+		<properties condition="resourceType = &#39;OrganizationAffiliation&#39;"/>
+		<visual-constraints layout="vertical" bounds="912,384,-1,-1"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="out" step="Filter 5"/>
+		<target endpoint="in" step="Alter Format 5"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Filter 6) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.conditions.Filter" disabled="false" id="Filter 6">
+		<properties condition="resourceType = &#39;OrganizationAffiliation&#39;"/>
+		<visual-constraints layout="vertical" bounds="1080,384,-1,-1"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="out" step="Filter 6"/>
+		<target endpoint="in" step="Alter Format 6"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Filter 7) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.conditions.Filter" disabled="false" id="Filter 7">
+		<properties condition="resourceType = &#39;OrganizationAffiliation&#39; and url=&#39;acceptingPatients&#39;"/>
+		<visual-constraints layout="vertical" bounds="1248,384,-1,-1"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="out" step="Filter 7"/>
+		<target endpoint="in" step="Alter Format 7"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Filter 8) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.conditions.Filter" disabled="false" id="Filter 8">
+		<properties condition="resourceType = &#39;OrganizationAffiliation&#39;"/>
+		<visual-constraints layout="vertical" bounds="1464,384,-1,-1"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="out" step="Filter 8"/>
+		<target endpoint="in" step="Alter Format 8"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Filter 9) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.conditions.Filter" disabled="false" id="Filter 9">
+		<properties condition="resourceType = &#39;OrganizationAffiliation&#39;"/>
+		<visual-constraints layout="vertical" bounds="1680,384,-1,-1"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="out" step="Filter 9"/>
+		<target endpoint="in" step="Alter Format 9"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (Json Parser_OrganizationAffiliation) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.io.json.parser.JsonParser" disabled="false" id="Json Parser_OrganizationAffiliation">
+		<properties inputColumn="Field_0">
+			<dataFormatParameters falseValue="false" dateTimeFormat="yy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yy-MM-dd" trueValue="true" dateFormatLocale="en_US" class="com.ataccama.dqc.tasks.io.text.read.TextReaderDataFormatParameters" thousandsSeparator=""/>
+			<dataStreams>
+				<rootJsonStreamConfig path="$" name="root" minOneRecord="false" maxOneRecord="false">
+					<attributes>
+						<attribute path="resourceType" name="resourceType" type="STRING"/>
+						<attribute path="id" name="id" type="STRING"/>
+						<attribute path="meta" name="meta" type="STRING"/>
+						<attribute path="meta.versionId" name="versionId" type="STRING"/>
+						<attribute path="meta.lastUpdated" name="lastUpdated" type="STRING"/>
+						<attribute path="meta.source" name="source" type="STRING"/>
+						<attribute path="meta.profile" name="profile" type="STRING"/>
+						<attribute path="text" name="text" type="STRING"/>
+						<attribute path="text.status" name="text_status" type="STRING"/>
+						<attribute path="text.div" name="text_div" type="STRING"/>
+						<attribute path="extension" name="extension" type="STRING"/>
+						<attribute path="address" name="address" type="STRING"/>
+						<attribute path="name" name="name" type="STRING"/>
+						<attribute path="identifier" name="identifier" type="STRING"/>
+					</attributes>
+					<dataStreams>
+						<childJsonStreamConfig path="period" name="period" minOneRecord="false" maxOneRecord="false">
+							<attributes>
+								<attribute path="start" name="start" type="STRING"/>
+								<attribute path="end" name="end" type="STRING"/>
+							</attributes>
+							<dataStreams/>
+							<scorer>
+								<scoringEntries>
+									<scoringEntry explain="true" score="0" explainAs="WLA_NOT_FOUND" key="WLA_NOT_FOUND"/>
+									<scoringEntry explain="true" score="0" explainAs="WLA_MULTIPLE" key="WLA_MULTIPLE"/>
+									<scoringEntry explain="true" score="0" explainAs="WLA_PARENT" key="WLA_PARENT"/>
+								</scoringEntries>
+							</scorer>
+							<shadowColumns>
+								<shadowColumnDef defaultExpression="root.resourceType" name="resourceType" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.id" name="id" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.versionId" name="versionId" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.lastUpdated" name="lastUpdated" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.source" name="source" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.profile" name="profile" type="STRING"/>
+							</shadowColumns>
+						</childJsonStreamConfig>
+						<childJsonStreamConfig path="specialty" name="specialty" minOneRecord="false" maxOneRecord="false">
+							<attributes>
+								<attribute path="coding.system" name="system" type="STRING"/>
+								<attribute path="coding.code" name="code" type="STRING"/>
+								<attribute path="coding.display" name="display" type="STRING"/>
+							</attributes>
+							<dataStreams/>
+							<scorer>
+								<scoringEntries/>
+							</scorer>
+							<shadowColumns>
+								<shadowColumnDef defaultExpression="root.resourceType" name="resourceType" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.id" name="id" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.versionId" name="versionId" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.lastUpdated" name="lastUpdated" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.source" name="source" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.profile" name="profile" type="STRING"/>
+							</shadowColumns>
+						</childJsonStreamConfig>
+						<childJsonStreamConfig path="location" name="location" minOneRecord="false" maxOneRecord="false">
+							<attributes>
+								<attribute path="reference" name="reference" type="STRING"/>
+							</attributes>
+							<dataStreams/>
+							<scorer>
+								<scoringEntries/>
+							</scorer>
+							<shadowColumns>
+								<shadowColumnDef defaultExpression="root.resourceType" name="resourceType" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.id" name="id" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.versionId" name="versionId" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.lastUpdated" name="lastUpdated" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.source" name="source" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.profile" name="profile" type="STRING"/>
+							</shadowColumns>
+						</childJsonStreamConfig>
+						<childJsonStreamConfig path="code.coding" name="coding" minOneRecord="false" maxOneRecord="false">
+							<attributes>
+								<attribute path="system" name="system" type="STRING"/>
+								<attribute path="code" name="code" type="STRING"/>
+								<attribute path="display" name="display" type="STRING"/>
+							</attributes>
+							<dataStreams/>
+							<scorer>
+								<scoringEntries/>
+							</scorer>
+							<shadowColumns>
+								<shadowColumnDef defaultExpression="root.resourceType" name="resourceType" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.id" name="id" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.versionId" name="versionId" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.lastUpdated" name="lastUpdated" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.source" name="source" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.profile" name="profile" type="STRING"/>
+							</shadowColumns>
+						</childJsonStreamConfig>
+						<childJsonStreamConfig path="identifier.type.coding" name="identifier" minOneRecord="false" maxOneRecord="false">
+							<attributes>
+								<attribute path="system" name="system" type="STRING"/>
+								<attribute path="code" name="code" type="STRING"/>
+								<attribute path="display" name="display" type="STRING"/>
+							</attributes>
+							<dataStreams/>
+							<scorer>
+								<scoringEntries/>
+							</scorer>
+							<shadowColumns>
+								<shadowColumnDef defaultExpression="root.resourceType" name="resourceType" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.id" name="id" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.versionId" name="versionId" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.lastUpdated" name="lastUpdated" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.source" name="source" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.profile" name="profile" type="STRING"/>
+							</shadowColumns>
+						</childJsonStreamConfig>
+						<childJsonStreamConfig path="extension" name="extension" minOneRecord="false" maxOneRecord="false">
+							<attributes>
+								<attribute path="url" name="url" type="STRING"/>
+								<attribute path="valueReference.reference" name="reference" type="STRING"/>
+							</attributes>
+							<dataStreams>
+								<childJsonStreamConfig path="extension" name="e.extension" minOneRecord="false" maxOneRecord="false">
+									<attributes>
+										<attribute path="url" name="url" type="STRING"/>
+										<attribute path="valueCodeableConcept.coding.system" name="system" type="STRING"/>
+										<attribute path="valueCodeableConcept.coding.code" name="code" type="STRING"/>
+										<attribute path="valueCodeableConcept.coding.display" name="display" type="STRING"/>
+									</attributes>
+									<dataStreams/>
+									<scorer>
+										<scoringEntries>
+											<scoringEntry explain="true" score="0" explainAs="WLA_NOT_FOUND" key="WLA_NOT_FOUND"/>
+											<scoringEntry explain="true" score="0" explainAs="WLA_MULTIPLE" key="WLA_MULTIPLE"/>
+											<scoringEntry explain="true" score="0" explainAs="WLA_PARENT" key="WLA_PARENT"/>
+										</scoringEntries>
+									</scorer>
+									<shadowColumns>
+										<shadowColumnDef defaultExpression="root.resourceType" name="resourceType" type="STRING"/>
+										<shadowColumnDef defaultExpression="root.id" name="id" type="STRING"/>
+										<shadowColumnDef defaultExpression="root.versionId" name="versionId" type="STRING"/>
+										<shadowColumnDef defaultExpression="root.lastUpdated" name="lastUpdated" type="STRING"/>
+										<shadowColumnDef defaultExpression="root.source" name="source" type="STRING"/>
+										<shadowColumnDef defaultExpression="root.profile" name="profile" type="STRING"/>
+									</shadowColumns>
+								</childJsonStreamConfig>
+							</dataStreams>
+							<scorer>
+								<scoringEntries/>
+							</scorer>
+							<shadowColumns>
+								<shadowColumnDef defaultExpression="root.resourceType" name="resourceType" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.id" name="id" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.versionId" name="versionId" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.lastUpdated" name="lastUpdated" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.source" name="source" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.profile" name="profile" type="STRING"/>
+							</shadowColumns>
+						</childJsonStreamConfig>
+						<childJsonStreamConfig path="healthcareService" name="healthcareService" minOneRecord="false" maxOneRecord="false">
+							<attributes>
+								<attribute path="reference" name="healthcareService_ref" type="STRING"/>
+							</attributes>
+							<dataStreams/>
+							<scorer>
+								<scoringEntries/>
+							</scorer>
+							<shadowColumns>
+								<shadowColumnDef defaultExpression="root.resourceType" name="resourceType" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.id" name="id" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.versionId" name="versionId" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.lastUpdated" name="lastUpdated" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.source" name="source" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.profile" name="profile" type="STRING"/>
+							</shadowColumns>
+						</childJsonStreamConfig>
+						<childJsonStreamConfig path="participatingOrganization" name="participatingOrganization" minOneRecord="false" maxOneRecord="false">
+							<attributes>
+								<attribute path="reference" name="participatingOrganization_ref" type="STRING"/>
+							</attributes>
+							<dataStreams/>
+							<scorer>
+								<scoringEntries/>
+							</scorer>
+							<shadowColumns>
+								<shadowColumnDef defaultExpression="root.resourceType" name="resourceType" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.id" name="id" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.versionId" name="versionId" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.lastUpdated" name="lastUpdated" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.source" name="source" type="STRING"/>
+								<shadowColumnDef defaultExpression="root.profile" name="profile" type="STRING"/>
+							</shadowColumns>
+						</childJsonStreamConfig>
+					</dataStreams>
+					<scorer>
+						<scoringEntries>
+							<scoringEntry explain="true" score="0" explainAs="WLA_NOT_FOUND" key="WLA_NOT_FOUND"/>
+							<scoringEntry explain="true" score="0" explainAs="WLA_MULTIPLE" key="WLA_MULTIPLE"/>
+						</scoringEntries>
+					</scorer>
+					<shadowColumns/>
+				</rootJsonStreamConfig>
+			</dataStreams>
+		</properties>
+		<visual-constraints layout="vertical" bounds="720,122,-1,-1"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="root" step="Json Parser_OrganizationAffiliation"/>
+		<target endpoint="in" step="Filter"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="period" step="Json Parser_OrganizationAffiliation"/>
+		<target endpoint="in" step="Filter 1"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="specialty" step="Json Parser_OrganizationAffiliation"/>
+		<target endpoint="in" step="Filter 2"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="location" step="Json Parser_OrganizationAffiliation"/>
+		<target endpoint="in" step="Filter 3"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="coding" step="Json Parser_OrganizationAffiliation"/>
+		<target endpoint="in" step="Filter 4"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="identifier" step="Json Parser_OrganizationAffiliation"/>
+		<target endpoint="in" step="Filter 5"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="extension" step="Json Parser_OrganizationAffiliation"/>
+		<target endpoint="in" step="Filter 6"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="e.extension" step="Json Parser_OrganizationAffiliation"/>
+		<target endpoint="in" step="Filter 7"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="healthcareService" step="Json Parser_OrganizationAffiliation"/>
+		<target endpoint="in" step="Filter 8"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="participatingOrganization" step="Json Parser_OrganizationAffiliation"/>
+		<target endpoint="in" step="Filter 9"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="out" step="Json Parser_OrganizationAffiliation"/>
+		<target endpoint="in" step="Trash_OUT"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<!-- (OrgAff_coding) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.io.text.write.TextFileWriter" disabled="false" id="OrgAff_coding">
+		<properties writeHeader="true" fileName="data/out/OrgAff_04_coding.csv" fieldSeparator=";" generateMetadata="true" stringQualifierEscape="&quot;" writeAllColumns="false" compression="NONE" encoding="UTF-8" lineSeparator="\r\n" stringQualifier="&quot;" useStringQualifierOnAllColumns="false">
+			<columns>
+				<textWriterColumn name="resourceType"/>
+				<textWriterColumn name="resourceID"/>
+				<textWriterColumn name="id"/>
+				<textWriterColumn name="versionId"/>
+				<textWriterColumn name="lastUpdated"/>
+				<textWriterColumn name="source"/>
+				<textWriterColumn name="profile"/>
+				<textWriterColumn name="system"/>
+				<textWriterColumn name="code"/>
+				<textWriterColumn name="display"/>
+			</columns>
+			<dataFormatParameters falseValue="false" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd" trueValue="true" dateFormatLocale="en_US" thousandsSeparator=""/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="744,576,-1,-1"/>
+	</step>
+
+
+
+<!-- (OrgAff_ext_newPatients) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.io.text.write.TextFileWriter" disabled="false" id="OrgAff_ext_newPatients">
+		<properties writeHeader="true" fileName="data/out/OrgAff_07_ext_newPatients.csv" fieldSeparator=";" generateMetadata="true" stringQualifierEscape="&quot;" writeAllColumns="false" compression="NONE" encoding="UTF-8" lineSeparator="\r\n" stringQualifier="&quot;" useStringQualifierOnAllColumns="false">
+			<columns>
+				<textWriterColumn name="resourceType"/>
+				<textWriterColumn name="resourceID"/>
+				<textWriterColumn name="id"/>
+				<textWriterColumn name="versionId"/>
+				<textWriterColumn name="lastUpdated"/>
+				<textWriterColumn name="source"/>
+				<textWriterColumn name="profile"/>
+				<textWriterColumn name="url"/>
+				<textWriterColumn name="system"/>
+				<textWriterColumn name="code"/>
+				<textWriterColumn name="display"/>
+			</columns>
+			<dataFormatParameters falseValue="false" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd" trueValue="true" dateFormatLocale="en_US" thousandsSeparator=""/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="1248,576,-1,-1"/>
+	</step>
+
+
+
+<!-- (OrgAff_extension) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.io.text.write.TextFileWriter" disabled="false" id="OrgAff_extension">
+		<properties writeHeader="true" fileName="data/out/OrgAff_06_extension.csv" fieldSeparator=";" generateMetadata="true" stringQualifierEscape="&quot;" writeAllColumns="false" compression="NONE" encoding="UTF-8" lineSeparator="\r\n" stringQualifier="&quot;" useStringQualifierOnAllColumns="false">
+			<columns>
+				<textWriterColumn name="resourceType"/>
+				<textWriterColumn name="resourceID"/>
+				<textWriterColumn name="id"/>
+				<textWriterColumn name="versionId"/>
+				<textWriterColumn name="lastUpdated"/>
+				<textWriterColumn name="source"/>
+				<textWriterColumn name="profile"/>
+				<textWriterColumn name="url"/>
+				<textWriterColumn name="reference"/>
+			</columns>
+			<dataFormatParameters falseValue="false" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd" trueValue="true" dateFormatLocale="en_US" thousandsSeparator=""/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="1080,576,-1,-1"/>
+	</step>
+
+
+
+<!-- (OrgAff_healthcareService) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.io.text.write.TextFileWriter" disabled="false" id="OrgAff_healthcareService">
+		<properties writeHeader="true" fileName="data/out/OrgAff_08_healthcareService.csv" fieldSeparator=";" generateMetadata="true" stringQualifierEscape="&quot;" writeAllColumns="false" compression="NONE" encoding="UTF-8" lineSeparator="\r\n" stringQualifier="&quot;" useStringQualifierOnAllColumns="false">
+			<columns>
+				<textWriterColumn name="resourceType"/>
+				<textWriterColumn name="resourceID"/>
+				<textWriterColumn name="id"/>
+				<textWriterColumn name="versionId"/>
+				<textWriterColumn name="lastUpdated"/>
+				<textWriterColumn name="source"/>
+				<textWriterColumn name="profile"/>
+				<textWriterColumn name="healthcareService_ref"/>
+			</columns>
+			<dataFormatParameters falseValue="false" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd" trueValue="true" dateFormatLocale="en_US" thousandsSeparator=""/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="1464,576,-1,-1"/>
+	</step>
+
+
+
+<!-- (OrgAff_identifier) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.io.text.write.TextFileWriter" disabled="false" id="OrgAff_identifier">
+		<properties writeHeader="true" fileName="data/out/OrgAff_05_identifier.csv" fieldSeparator=";" generateMetadata="true" stringQualifierEscape="&quot;" writeAllColumns="false" compression="NONE" encoding="UTF-8" lineSeparator="\r\n" stringQualifier="&quot;" useStringQualifierOnAllColumns="false">
+			<columns>
+				<textWriterColumn name="resourceType"/>
+				<textWriterColumn name="resourceID"/>
+				<textWriterColumn name="id"/>
+				<textWriterColumn name="versionId"/>
+				<textWriterColumn name="lastUpdated"/>
+				<textWriterColumn name="source"/>
+				<textWriterColumn name="profile"/>
+				<textWriterColumn name="system"/>
+				<textWriterColumn name="code"/>
+				<textWriterColumn name="display"/>
+			</columns>
+			<dataFormatParameters falseValue="false" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd" trueValue="true" dateFormatLocale="en_US" thousandsSeparator=""/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="912,576,-1,-1"/>
+	</step>
+
+
+
+<!-- (OrgAff_location) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.io.text.write.TextFileWriter" disabled="false" id="OrgAff_location">
+		<properties writeHeader="true" fileName="data/out/OrgAff_03_location.csv" fieldSeparator=";" generateMetadata="true" stringQualifierEscape="&quot;" writeAllColumns="false" compression="NONE" encoding="UTF-8" lineSeparator="\r\n" stringQualifier="&quot;" useStringQualifierOnAllColumns="false">
+			<columns>
+				<textWriterColumn name="resourceType"/>
+				<textWriterColumn name="resourceID"/>
+				<textWriterColumn name="id"/>
+				<textWriterColumn name="versionId"/>
+				<textWriterColumn name="lastUpdated"/>
+				<textWriterColumn name="source"/>
+				<textWriterColumn name="profile"/>
+				<textWriterColumn name="reference"/>
+			</columns>
+			<dataFormatParameters falseValue="false" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd" trueValue="true" dateFormatLocale="en_US" thousandsSeparator=""/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="576,576,-1,-1"/>
+	</step>
+
+
+
+<!-- (OrgAff_participatingOrganization) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.io.text.write.TextFileWriter" disabled="false" id="OrgAff_participatingOrganization">
+		<properties writeHeader="true" fileName="data/out/OrgAff_09_participatingOrganization.csv" fieldSeparator=";" generateMetadata="true" stringQualifierEscape="&quot;" writeAllColumns="false" compression="NONE" encoding="UTF-8" lineSeparator="\r\n" stringQualifier="&quot;" useStringQualifierOnAllColumns="false">
+			<columns>
+				<textWriterColumn name="resourceType"/>
+				<textWriterColumn name="resourceID"/>
+				<textWriterColumn name="id"/>
+				<textWriterColumn name="versionId"/>
+				<textWriterColumn name="lastUpdated"/>
+				<textWriterColumn name="source"/>
+				<textWriterColumn name="profile"/>
+				<textWriterColumn name="participatingOrganization_ref"/>
+			</columns>
+			<dataFormatParameters falseValue="false" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd" trueValue="true" dateFormatLocale="en_US" thousandsSeparator=""/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="1680,576,-1,-1"/>
+	</step>
+
+
+
+<!-- (OrgAff_period) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.io.text.write.TextFileWriter" disabled="false" id="OrgAff_period">
+		<properties writeHeader="true" fileName="data/out/OrgAff_01_period.csv" fieldSeparator=";" generateMetadata="true" stringQualifierEscape="&quot;" writeAllColumns="false" compression="NONE" encoding="UTF-8" lineSeparator="\r\n" stringQualifier="&quot;" useStringQualifierOnAllColumns="false">
+			<columns>
+				<textWriterColumn name="resourceType"/>
+				<textWriterColumn name="resourceID"/>
+				<textWriterColumn name="id"/>
+				<textWriterColumn name="versionId"/>
+				<textWriterColumn name="lastUpdated"/>
+				<textWriterColumn name="source"/>
+				<textWriterColumn name="profile"/>
+				<textWriterColumn name="start"/>
+				<textWriterColumn name="end"/>
+			</columns>
+			<dataFormatParameters falseValue="false" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd" trueValue="true" dateFormatLocale="en_US" thousandsSeparator=""/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="240,576,-1,-1"/>
+	</step>
+
+
+
+<!-- (OrgAff_root_out) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.io.text.write.TextFileWriter" disabled="false" id="OrgAff_root_out">
+		<properties writeHeader="true" fileName="data/out/OrgAff_00_root_out.csv" fieldSeparator=";" generateMetadata="true" stringQualifierEscape="&quot;" writeAllColumns="true" compression="NONE" encoding="UTF-8" lineSeparator="\r\n" stringQualifier="&quot;" useStringQualifierOnAllColumns="false">
+			<columns/>
+			<dataFormatParameters falseValue="false" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd" trueValue="true" dateFormatLocale="en_US" thousandsSeparator=""/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="72,576,-1,-1"/>
+	</step>
+
+
+
+<!-- (OrgAff_specialty) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.io.text.write.TextFileWriter" disabled="false" id="OrgAff_specialty">
+		<properties writeHeader="true" fileName="data/out/OrgAff_02_specialty.csv" fieldSeparator=";" generateMetadata="true" stringQualifierEscape="&quot;" writeAllColumns="false" compression="NONE" encoding="UTF-8" lineSeparator="\r\n" stringQualifier="&quot;" useStringQualifierOnAllColumns="false">
+			<columns>
+				<textWriterColumn name="resourceType"/>
+				<textWriterColumn name="resourceID"/>
+				<textWriterColumn name="id"/>
+				<textWriterColumn name="versionId"/>
+				<textWriterColumn name="lastUpdated"/>
+				<textWriterColumn name="source"/>
+				<textWriterColumn name="profile"/>
+				<textWriterColumn name="system"/>
+				<textWriterColumn name="code"/>
+				<textWriterColumn name="display"/>
+			</columns>
+			<dataFormatParameters falseValue="false" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd" trueValue="true" dateFormatLocale="en_US" thousandsSeparator=""/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="408,576,-1,-1"/>
+	</step>
+
+
+
+<!-- (Trash_OUT) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.io.Trash" disabled="false" id="Trash_OUT">
+		<properties/>
+		<visual-constraints layout="vertical" bounds="24,216,-1,-1"/>
+	</step>
+
+
+
+<!-- (out) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.io.text.write.TextFileWriter" disabled="true" id="out">
+		<properties writeHeader="true" fileName="data/out/00-out.csv" fieldSeparator=";" generateMetadata="true" stringQualifierEscape="&quot;" writeAllColumns="true" compression="NONE" encoding="UTF-8" lineSeparator="\r\n" stringQualifier="&quot;" useStringQualifierOnAllColumns="false">
+			<columns/>
+			<dataFormatParameters falseValue="false" dateTimeFormat="yyyy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yyyy-MM-dd" trueValue="true" dateFormatLocale="en_US" thousandsSeparator=""/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="24,288,-1,-1"/>
+	</step>
+
+
+
+<!-- (pdt_pve) --><step mode="NORMAL" className="com.ataccama.dqc.tasks.io.text.read.FixedWidthFileReader" disabled="false" id="pdt_pve">
+		<properties lineMaxReadLength="65536" fileName="data/in/pdt_pve.txt" numberOfLinesInFooter="0" compression="NONE" encoding="UTF-8" lineSeparator="\r\n" numberOfLinesInHeader="0">
+			<columns>
+				<fixedWidthColumn name="Field_0" width="100000" ignore="false" skip="0" type="STRING"/>
+			</columns>
+			<dataFormatParameters falseValue="false" dateTimeFormat="yy-MM-dd HH:mm:ss" decimalSeparator="." dayFormat="yy-MM-dd" trueValue="true" dateFormatLocale="en_US" thousandsSeparator=""/>
+			<errorHandlingStrategy rejectFileName="rejected.txt">
+				<errorInstructions>
+					<errorInstruction dataStrategy="READ_POSSIBLE" errorType="EXTRA_DATA" putToLog="true" putToReject="false"/>
+					<errorInstruction dataStrategy="STOP" errorType="LONG_LINE" putToLog="true" putToReject="true"/>
+					<errorInstruction dataStrategy="STOP" errorType="PROCESSING_ERROR" putToLog="true" putToReject="false"/>
+					<errorInstruction dataStrategy="READ_POSSIBLE" errorType="INVALID_DATE" putToLog="true" putToReject="false"/>
+					<errorInstruction dataStrategy="READ_POSSIBLE" errorType="SHORT_LINE" putToLog="true" putToReject="true"/>
+					<errorInstruction dataStrategy="NULL_VALUE" errorType="UNPARSABLE_FIELD" putToLog="true" putToReject="false"/>
+				</errorInstructions>
+			</errorHandlingStrategy>
+			<shadowColumns/>
+		</properties>
+		<visual-constraints layout="vertical" bounds="720,24,-1,-1"/>
+	</step>
+	<connection className="com.ataccama.dqc.model.elements.connections.StandardFlowConnection" disabled="false">
+		<source endpoint="out" step="pdt_pve"/>
+		<target endpoint="in" step="Json Parser_OrganizationAffiliation"/>
+		<visual-constraints>
+			<bendpoints/>
+		</visual-constraints>
+	</connection>
+
+
+
+<modelComment backgroundColor="0,255,128" borderColor="183,183,0" bounds="24,24,80,60" foregroundColor="0,0,0">Organization Affiliation</modelComment>
+
+</purity-config>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<workflow xmlns:vis="http://www.ataccama.com/purity/visual" version="12.6.3">
+	<continueOnFailure>true</continueOnFailure>
+	<groups/>
+	<multiplicity>0</multiplicity>
+	<name>Complete Processing</name>
+	<variables>
+		<derived/>
+		<input/>
+	</variables>
+	<tasks>
+		<task acceptMode="ALL_VALID" name="Perform full data load" description="Perform CRM &amp; Life &amp; Invest systems full data load including hub reference data" id="021_Run_MultiLoad" priority="0">
+			<executable class="com.ataccama.nme.ext.workflow.RunNmeMultiLoad" operationNames="crm_full,life_full,invest_full,hub_reference_data_full">
+				<parameters/>
+			</executable>
+			<vis:visualConstraints bounds="66,57,-1,-1"/>
+		</task>
+	</tasks>
+</workflow>

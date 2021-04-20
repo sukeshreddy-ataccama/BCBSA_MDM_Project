@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<WorkflowInstanceState>
+	<forcedResume>false</forcedResume>
+	<hostInfo hostName="PZACEK" hostPort="7777" hostAddress="192.168.99.1"/>
+	<id>1</id>
+	<linkEvaluations/>
+	<started>2020-05-27 22:02:37</started>
+	<state>FINISHED_OK</state>
+	<stopped>2020-05-27 22:02:52</stopped>
+	<taskVariables>
+		<taskVariableBean task="021_Run_MultiLoad" name="taskId" type="LONG" value="1"/>
+		<taskVariableBean task="021_Run_MultiLoad" name="transactionId" type="STRING" value="1002"/>
+	</taskVariables>
+	<tasks>
+		<workflowTaskPersistModelBean stopped="2020-05-27 22:02:52" started="2020-05-27 22:02:37" id="021_Run_MultiLoad" state="FINISHED_OK">
+			<compensationStates/>
+		</workflowTaskPersistModelBean>
+	</tasks>
+	<wfTimestamp>1970-01-01 01:00:00</wfTimestamp>
+	<wfVariables>
+		<variableBean name="ewf_execution_id" type="STRING" value="1"/>
+		<variableBean name="ewf_workflow_id" type="STRING" value="WF1:multiload_initial.ewf"/>
+		<variableBean name="ewf_private_folder" type="STRING" value="C:\_Git\_examples\content\modules\MDC_Models\src\GeneralMDM\Files\storage\resources\workflow\wfinst_1"/>
+		<variableBean name="ewf_user_name" type="STRING" value="jane.smith"/>
+	</wfVariables>
+	<workflowId>WF1:multiload_initial.ewf</workflowId>
+</WorkflowInstanceState>

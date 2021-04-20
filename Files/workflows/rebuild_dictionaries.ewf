@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<workflow xmlns:comm="http://www.ataccama.com/purity/comment" xmlns:vis="http://www.ataccama.com/purity/visual" version="12.6.3">
+	<continueOnFailure>true</continueOnFailure>
+	<groups/>
+	<multiplicity>0</multiplicity>
+	<variables>
+		<derived>
+			<ewfDerivedVariable expression="ewfGetPathVariable(&#39;HUB_RD_LKP&#39;)" name="HUB_RD_LKP">
+				<comm:comment>Get Hub Reference Data Pathvariable</comm:comment>
+			</ewfDerivedVariable>
+			<ewfDerivedVariable name="HUB_RD_LKP_NEW">
+				<expression>nvl(ewfGetPathVariable(&#39;HUB_RD_LKP_NEW&#39;), ewf_private_folder)
+</expression>
+				<comm:comment>Get the storage path for NEW lookups (default: use EWF private work folder)</comm:comment>
+			</ewfDerivedVariable>
+		</derived>
+	</variables>
+	<tasks>
+		<task acceptMode="ALL_VALID" name="Build New Lookups" description="Completely rebuild all HUB Reference Data into a temporary folder specified in pathvar parameter" id="01 Build New Lookups" priority="0">
+			<executable class="com.ataccama.adt.task.exec.EwfDqcTask" planFile="../data/ext/build/hub_reference_data_build.plan">
+				<pathVariables>
+					<pathVariableBean name="HUB_RD_LKP" value="${HUB_RD_LKP_NEW}"/>
+				</pathVariables>
+			</executable>
+			<vis:visualConstraints bounds="104,125,-1,-1"/>
+		</task>
+		<task acceptMode="ALL_VALID" id="04 Reload VFS" priority="0">
+			<executable class="com.ataccama.adt.dqc.tasks.EwfReloadVfsTask"/>
+			<vis:visualConstraints bounds="536,125,-1,-1"/>
+		</task>
+		<task acceptMode="ALL_VALID" name="Copy New Lookups" description="Copy all fresh HUB reference data files from temporary folder to target HUB folder" id="02 Copy New Lookups" priority="0" xmlns:ver="http://www.ataccama.com/purity/version">
+         <executable class="com.ataccama.adt.task.exec.EwfFileOperationTask">
+            <operation overwriteFlag="true" recursiveFlag="false" targetFile="${HUB_RD_LKP}" class="com.ataccama.adt.file.operations.EwfCopyFileOperation" sourceFile="${HUB_RD_LKP_NEW}/*.lkp"/>
+         </executable>
+         <vis:visualConstraints bounds="248,125,-1,-1"/>
+      </task>
+		<task acceptMode="ALL_VALID" id="03 Clean-up New Lookups" priority="0" xmlns:ver="http://www.ataccama.com/purity/version">
+         <executable class="com.ataccama.adt.task.exec.EwfFileOperationTask">
+            <operation recursiveFlag="false" targetFile="${HUB_RD_LKP_NEW}/*.lkp" class="com.ataccama.adt.file.operations.EwfDeleteFileOperation"/>
+         </executable>
+         <vis:visualConstraints bounds="392,125,-1,-1"/>
+      </task>
+	</tasks>
+	<links>
+		<link from="01 Build New Lookups" to="02 Copy New Lookups" type="NORMAL">
+			<vis:visualConstraints>
+				<vis:bendpoints/>
+			</vis:visualConstraints>
+		</link>
+		<link from="03 Clean-up New Lookups" to="04 Reload VFS" type="NORMAL">
+			<vis:visualConstraints>
+				<vis:bendpoints/>
+			</vis:visualConstraints>
+		</link>
+		<link from="02 Copy New Lookups" to="03 Clean-up New Lookups" type="NORMAL">
+			<vis:visualConstraints>
+				<vis:bendpoints/>
+			</vis:visualConstraints>
+		</link>
+	</links>
+	<vis:modelComments>
+		<vis:modelComment backgroundColor="255,255,180" borderColor="183,183,0" bounds="669,117,295,95" foregroundColor="51,51,51">Hub Reference Data Refresh
+==================
+Workflow rebuilds Hub Reference Data and performs
+lookup online reload.</vis:modelComment>
+	</vis:modelComments>
+</workflow>

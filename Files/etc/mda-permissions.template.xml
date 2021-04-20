@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<permissions>
+	<issueRoles>
+		<role name="MDA_viewer"/>
+		<role name="MDA_user"/>
+		<role name="MDA_superuser"/>
+		<role name="MDA_im_steward"/>
+	</issueRoles>
+	<keycloakConfigName>keycloak-local</keycloakConfigName>
+	<keycloakClientId>one-service-account</keycloakClientId>
+	<securityProviders>
+		<securityProvider class="com.ataccama.mda.core.config.security.MdaPermissionsProvider">
+			<rolesBean class="com.ataccama.mda.core.config.security.MdaXmlRolesProviderConfig">
+				<roles>
+					<role name="MDA_superuser">
+						<description>Superuser role has full permissions.</description>
+						<workflows>
+							<workflow name="consolidation">
+								<steps>
+									<step discard="true" name="draft" publish="true"/>
+									<step name="waiting_for_publish" publish="true"/>
+								</steps>
+								<transitions>
+									<transition name="move_publish"/>
+									<transition name="return_draft"/>
+								</transitions>
+							</workflow>
+							<workflow name="sor">
+								<steps>
+									<step discard="true" name="draft" publish="true"/>
+								</steps>
+							</workflow>
+						</workflows>
+						<instanceLayer>
+							<entities>
+								<entity createIssue="true" export="true" name="party">
+									<steps>
+										<step name="draft" override="true" ovrActive="true" ovrMatch="true" workflow="consolidation"/>
+										<step name="waiting_for_publish" override="true" ovrActive="true" ovrMatch="true" workflow="consolidation"/>
+									</steps>
+									<columns>
+										<column name="id" write="true"/>
+										<column name="eng_source_timestamp" write="true"/>
+										<column name="eng_active" write="true"/>
+										<column name="eng_origin" write="true"/>
+										<column name="eng_source_system" write="true"/>
+										<column name="eng_last_update_date" write="true"/>
+										<column name="eng_last_source_update_date" write="true"/>
+										<column name="eng_creation_date" write="true"/>
+										<column name="eng_deletion_date" write="true"/>
+										<column name="eng_activation_date" write="true"/>
+										<column name="eng_deactivation_date" write="true"/>
+										<column name="source_id" write="true"/>
+										<column name="src_resource_id" write="true"/>
+										<column name="std_resource_id" write="true"/>
+										<column name="src_resource_type" write="true"/>
+										<column name="std_resource_type" write="true"/>
+										<column name="src_resource_name" write="true"/>
+										<column name="std_resource_name" write="true"/>
+										<column name="src_is_active" write="true"/>
+										<column name="std_is_active" write="true"/>
+										<column name="src_gender" write="true"/>
+										<column name="std_gender" write="true"/>
+										<column name="cio_gender" write="true"/>
+										<column name="exp_gender" write="true"/>
+										<column name="sco_gender" write="true"/>
+										<column name="src_birthdate" write="true"/>
+										<column name="std_birthdate" write="true"/>
+										<column name="cio_birthdate" write="true"/>
+										<column name="exp_birthdate" write="true"/>
+										<column name="sco_birthdate" write="true"/>
+										<column name="src_job_title" write="true"/>
+										<column name="std_job_title" write="true"/>
+										<column name="src_first_name" write="true"/>
+										<column name="std_first_name" write="true"/>
+										<column name="cio_first_name" write="true"/>
+										<column name="src_last_name" write="true"/>
+										<column name="std_last_name" write="true"/>
+										<column name="cio_last_name" write="true"/>
+										<column name="src_middle_name" write="true"/>
+										<column name="std_middle_name" write="true"/>
+										<column name="cio_middle_name" write="true"/>
+										<column name="src_prefix" write="true"/>
+										<column name="std_prefix" write="true"/>
+										<column name="cio_prefix" write="true"/>
+										<column name="src_suffix" write="true"/>
+										<column name="std_suffix" write="true"/>
+										<column name="cio_suffix" write="true"/>
+										<column name="src_name_use" write="true"/>
+										<column name="std_name_use" write="true"/>
+										<column name="cio_name_use" write="true"/>
+										<column name="src_organization_name" write="true"/>
+										<column name="std_organization_name" write="true"/>
+										<column name="cio_organization_name" write="true"/>
+										<column name="exp_organization_name" write="true"/>
+										<column name="sco_organization_name" write="true"/>
+										<column name="src_provider_type" write="true"/>
+										<column name="std_provider_type" write="true"/>
+										<column name="src_entity_type" write="true"/>
+										<column name="std_entity_type" write="true"/>
+										<column name="src_provider_tier" write="true"/>
+										<column name="std_provider_tier" write="true"/>
+										<column name="src_type" write="true"/>
+										<column name="std_type" write="true"/>
+										<column name="cio_type" write="true"/>
+										<column name="exp_type" write="true"/>
+										<column name="sco_type" write="true"/>
+									</columns>
+								</entity>
+								<entity createIssue="true" export="true" name="address">
+									<steps>
+										<step name="draft" override="true" ovrActive="true" ovrMatch="true" workflow="consolidation"/>
+										<step name="waiting_for_publish" override="true" ovrActive="true" ovrMatch="true" workflow="consolidation"/>
+									</steps>
+									<columns>
+										<column name="id" write="true"/>
+										<column name="eng_source_timestamp" write="true"/>
+										<column name="eng_active" write="true"/>
+										<column name="eng_origin" write="true"/>
+										<column name="eng_source_system" write="true"/>
+										<column name="eng_last_update_date" write="true"/>
+										<column name="eng_last_source_update_date" write="true"/>
+										<column name="eng_creation_date" write="true"/>
+										<column name="eng_deletion_date" write="true"/>
+										<column name="eng_activation_date" write="true"/>
+										<column name="eng_deactivation_date" write="true"/>
+										<column name="source_id" write="true"/>
+										<column name="party_source_id" write="true"/>
+										<column name="src_city" write="true"/>
+										<column name="cio_city" write="true"/>
+										<column name="src_county" write="true"/>
+										<column name="cio_county" write="true"/>
+										<column name="src_state" write="true"/>
+										<column name="cio_state" write="true"/>
+										<column name="src_country" write="true"/>
+										<column name="cio_country" write="true"/>
+										<column name="src_lattitude" write="true"/>
+										<column name="std_lattitude" write="true"/>
+										<column name="src_longitude" write="true"/>
+										<column name="std_longitude" write="true"/>
+										<column name="src_postal_code" write="true"/>
+										<column name="cio_postal_code" write="true"/>
+										<column name="src_line_1" write="true"/>
+										<column name="std_line_1" write="true"/>
+										<column name="cio_line_1" write="true"/>
+										<column name="exp_line_1" write="true"/>
+										<column name="sco_line_1" write="true"/>
+										<column name="src_line_2" write="true"/>
+										<column name="std_line_2" write="true"/>
+										<column name="cio_line_2" write="true"/>
+										<column name="exp_line_2" write="true"/>
+										<column name="sco_line_2" write="true"/>
+										<column name="src_geo_return_code" write="true"/>
+										<column name="std_geo_return_code" write="true"/>
+										<column name="src_metro_area" write="true"/>
+										<column name="std_metro_area" write="true"/>
+										<column name="src_service_area_code" write="true"/>
+										<column name="std_service_area_code" write="true"/>
+										<column name="src_provider_locn_mstr_id" write="true"/>
+										<column name="src_geo_return_code_display" write="true"/>
+										<column name="std_geo_return_code_display" write="true"/>
+										<column name="src_service_area_display" write="true"/>
+										<column name="std_service_area_display" write="true"/>
+									</columns>
+								</entity>
+								<entity createIssue="true" export="true" name="contact">
+									<steps>
+										<step name="draft" override="true" ovrActive="true" ovrMatch="true" workflow="consolidation"/>
+										<step name="waiting_for_publish" override="true" ovrActive="true" ovrMatch="true" workflow="consolidation"/>
+									</steps>
+									<columns>
+										<column name="id" write="true"/>
+										<column name="eng_source_timestamp" write="true"/>
+										<column name="eng_active" write="true"/>
+										<column name="eng_origin" write="true"/>
+										<column name="eng_source_system" write="true"/>
+										<column name="eng_last_update_date" write="true"/>
+										<column name="eng_last_source_update_date" write="true"/>
+										<column name="eng_creation_date" write="true"/>
+										<column name="eng_deletion_date" write="true"/>
+										<column name="eng_activation_date" write="true"/>
+										<column name="eng_deactivation_date" write="true"/>
+										<column name="source_id" write="true"/>
+										<column name="party_source_id" write="true"/>
+										<column name="src_contact_type" write="true"/>
+										<column name="cio_contact_type" write="true"/>
+										<column name="src_value" write="true"/>
+									</columns>
+								</entity>
+								<entity createIssue="true" export="true" name="rel_party2address">
+									<steps>
+										<step name="draft" override="true" ovrActive="true" ovrMatch="true" workflow="consolidation"/>
+										<step name="waiting_for_publish" override="true" ovrActive="true" ovrMatch="true" workflow="consolidation"/>
+									</steps>
+									<columns>
+										<column name="id" write="true"/>
+										<column name="eng_source_timestamp" write="true"/>
+										<column name="eng_active" write="true"/>
+										<column name="eng_origin" write="true"/>
+										<column name="eng_source_system" write="true"/>
+										<column name="eng_last_update_date" write="true"/>
+										<column name="eng_last_source_update_date" write="true"/>
+										<column name="eng_creation_date" write="true"/>
+										<column name="eng_deletion_date" write="true"/>
+										<column name="eng_activation_date" write="true"/>
+										<column name="eng_deactivation_date" write="true"/>
+										<column name="source_id" write="true"/>
+										<column name="party_source_id" write="true"/>
+										<column name="address_source_id" write="true"/>
+										<column name="src_use" write="true"/>
+										<column name="std_use" write="true"/>
+										<column name="src_type" write="true"/>
+										<column name="std_type" write="true"/>
+										<column name="src_resource_id" write="true"/>
+										<column name="std_resource_id" write="true"/>
+										<column name="src_resource_type" write="true"/>
+										<column name="std_resource_type" write="true"/>
+										<column name="src_rel_type" write="true"/>
+										<column name="std_rel_type" write="true"/>
+									</columns>
+								</entity>
+								<entity createIssue="true" export="true" name="rel_party2party">
+									<steps>
+										<step name="draft" override="true" ovrActive="true" ovrMatch="true" workflow="consolidation"/>
+										<step name="waiting_for_publish" override="true" ovrActive="true" ovrMatch="true" workflow="consolidation"/>
+									</steps>
+									<columns>
+										<column name="id" write="true"/>
+										<column name="eng_source_timestamp" write="true"/>
+										<column name="eng_active" write="true"/>
+										<column name="eng_origin" write="true"/>
+										<column name="eng_source_system" write="true"/>
+										<column name="eng_last_update_date" write="true"/>
+										<column name="eng_last_source_update_date" write="true"/>
+										<column name="eng_creation_date" write="true"/>
+										<column name="eng_deletion_date" write="true"/>
+										<column name="eng_activation_date" write="true"/>
+										<column name="eng_deactivation_date" write="true"/>
+										<column name="source_id" write="true"/>
+										<column name="parent_source_id" write="true"/>
+										<column name="child_source_id" write="true"/>
+										<column name="src_provider_affiliation_typ" write="true"/>
+										<column name="std_provider_affiliation_typ" write="true"/>
+										<column name="src_p2p_valid_from" write="true"/>
+										<column name="std_p2p_valid_from" write="true"/>
+										<column name="src_p2p_valid_to" write="true"/>
+										<column name="std_p2p_valid_to" write="true"/>
+										<column name="src_rel_type" write="true"/>
+										<column name="std_rel_type" write="true"/>
+									</columns>
+								</entity>
+								<entity createIssue="true" export="true" name="rel_party2contact">
+									<steps>
+										<step name="draft" override="true" ovrActive="true" ovrMatch="true" workflow="consolidation"/>
+										<step name="waiting_for_publish" override="true" ovrActive="true" ovrMatch="true" workflow="consolidation"/>
+									</steps>
+									<columns>
+										<column name="id" write="true"/>
+										<column name="eng_source_timestamp" write="true"/>
+										<column name="eng_active" write="true"/>
+										<column name="eng_origin" write="true"/>
+										<column name="eng_source_system" write="true"/>
+										<column name="eng_last_update_date" write="true"/>
+										<column name="eng_last_source_update_date" write="true"/>
+										<column name="eng_creation_date" write="true"/>
+										<column name="eng_deletion_date" write="true"/>
+										<column name="eng_activation_date" write="true"/>
+										<column name="eng_deactivation_date" write="true"/>
+										<column name="source_id" write="true"/>
+										<column name="party_source_id" write="true"/>
+										<column name="contact_source_id" write="true"/>
+										<column name="src_rel_type" write="true"/>
+										<column name="std_rel_type" write="true"/>
+										<column name="src_use" write="true"/>
+										<column name="std_use" write="true"/>
+										<column name="src_rank" write="true"/>
+										<column name="std_rank" write="true"/>
+									</columns>
+								</entity>
+								<entity createIssue="true" export="true" name="id_document">
+									<steps>
+										<step name="draft" override="true" ovrActive="true" ovrMatch="true" workflow="consolidation"/>
+										<step name="waiting_for_publish" override="true" ovrActive="true" ovrMatch="true" workflow="consolidation"/>
+									</steps>
+									<columns>
+										<column name="id" write="true"/>
+										<column name="eng_source_timestamp" write="true"/>
+										<column name="eng_active" write="true"/>
+										<column name="eng_origin" write="true"/>
+										<column name="eng_source_system" write="true"/>
+										<column name="eng_last_update_date" write="true"/>
+										<column name="eng_last_source_update_date" write="true"/>
+										<column name="eng_creation_date" write="true"/>
+										<column name="eng_deletion_date" write="true"/>
+										<column name="eng_activation_date" write="true"/>
+										<column name="eng_deactivation_date" write="true"/>
+										<column name="source_id" write="true"/>
+										<column name="party_source_id" write="true"/>
+										<column name="src_use" write="true"/>
+										<column name="std_use" write="true"/>
+										<column name="src_type" write="true"/>
+										<column name="std_type" write="true"/>
+										<column name="src_value" write="true"/>
+									</columns>
+								</entity>
+								<entity createIssue="true" export="true" name="value_based_program">
+									<steps>
+										<step name="draft" override="true" ovrActive="true" ovrMatch="true" workflow="consolidation"/>
+										<step name="waiting_for_publish" override="true" ovrActive="true" ovrMatch="true" workflow="consolidation"/>
+									</steps>
+									<columns>
+										<column name="id" write="true"/>
+										<column name="eng_source_timestamp" write="true"/>
+										<column name="eng_active" write="true"/>
+										<column name="eng_origin" write="true"/>
+										<column name="eng_source_system" write="true"/>
+										<column name="eng_last_update_date" write="true"/>
+										<column name="eng_last_source_update_date" write="true"/>
+										<column name="eng_creation_date" write="true"/>
+										<column name="eng_deletion_date" write="true"/>
+										<column name="eng_activation_date" write="true"/>
+										<column name="eng_deactivation_date" write="true"/>
+										<column name="source_id" write="true"/>
+										<column name="party_source_id" write="true"/>
+										<column name="src_value_based_program_id" write="true"/>
+										<column name="std_value_based_program_id" write="true"/>
+										<column name="src_member_select_attr_ind" write="true"/>
+										<column name="std_member_select_attr_ind" write="true"/>
+									</columns>
+								</entity>
+								<entity createIssue="true" export="true" name="licensese">
+									<steps>
+										<step name="draft" override="true" ovrActive="true" ovrMatch="true" workflow="consolidation"/>
+										<step name="waiting_for_publish" override="true" ovrActive="true" ovrMatch="true" workflow="consolidation"/>
+									</steps>
+									<columns>
+										<column name="id" write="true"/>
+										<column name="eng_source_timestamp" write="true"/>
+										<column name="eng_active" write="true"/>
+										<column name="eng_origin" write="true"/>
+										<column name="eng_source_system" write="true"/>
+										<column name="eng_last_update_date" write="true"/>
+										<column name="eng_last_source_update_date" write="true"/>
+										<column name="eng_creation_date" write="true"/>
+										<column name="eng_deletion_date" write="true"/>
+										<column name="eng_activation_date" write="true"/>
+										<column name="eng_deactivation_date" write="true"/>
+										<column name="source_id" write="true"/>
+										<column name="party_source_id" write="true"/>
+										<column name="src_entity_code" write="true"/>
+										<column name="std_entity_code" write="true"/>
+										<column name="src_resource_type" write="true"/>
+										<column name="std_resource_type" write="true"/>
+										<column name="src_resource_id" write="true"/>
+										<column name="std_resource_id" write="true"/>
+										<column name="src_hierarchy_code" write="true"/>
+										<column name="std_hierarchy_code" write="true"/>
+									</columns>
+								</entity>
+								<entity createIssue="true" export="true" name="alternate_name">
+									<steps>
+										<step name="draft" override="true" ovrActive="true" ovrMatch="true" workflow="consolidation"/>
+										<step name="waiting_for_publish" override="true" ovrActive="true" ovrMatch="true" workflow="consolidation"/>
+									</steps>
+									<columns>
+										<column name="id" write="true"/>
+										<column name="eng_source_timestamp" write="true"/>
+										<column name="eng_active" write="true"/>
+										<column name="eng_origin" write="true"/>
+										<column name="eng_source_system" write="true"/>
+										<column name="eng_last_update_date" write="true"/>
+										<column name="eng_last_source_update_date" write="true"/>
+										<column name="eng_creation_date" write="true"/>
+										<column name="eng_deletion_date" write="true"/>
+										<column name="eng_activation_date" write="true"/>
+										<column name="eng_deactivation_date" write="true"/>
+										<column name="source_id" write="true"/>
+										<column name="party_source_id" write="true"/>
+										<column name="src_first_name" write="true"/>
+										<column name="std_first_name" write="true"/>
+										<column name="cio_first_name" write="true"/>
+										<column name="src_last_name" write="true"/>
+										<column name="std_last_name" write="true"/>
+										<column name="cio_last_name" write="true"/>
+										<column name="src_middle_name" write="true"/>
+										<column name="std_middle_name" write="true"/>
+										<column name="cio_middle_name" write="true"/>
+										<column name="src_prefix" write="true"/>
+										<column name="std_prefix" write="true"/>
+										<column name="cio_prefix" write="true"/>
+										<column name="src_suffix" write="true"/>
+										<column name="std_suffix" write="true"/>
+										<column name="cio_suffix" write="true"/>
+										<column name="src_name_use" write="true"/>
+										<column name="std_name_use" write="true"/>
+										<column name="cio_name_use" write="true"/>
+									</columns>
+								</entity>
+								<entity createIssue="true" export="true" name="qualification">
+									<steps>
+										<step name="draft" override="true" ovrActive="true" ovrMatch="true" workflow="consolidation"/>
+										<step name="waiting_for_publish" override="true" ovrActive="true" ovrMatch="true" workflow="consolidation"/>
+									</steps>
+									<columns>
+										<column name="id" write="true"/>
+										<column name="eng_source_timestamp" write="true"/>
+										<column name="eng_active" write="true"/>
+										<column name="eng_origin" write="true"/>
+										<column name="eng_source_system" write="true"/>
+										<column name="eng_last_update_date" write="true"/>
+										<column name="eng_last_source_update_date" write="true"/>
+										<column name="eng_creation_date" write="true"/>
+										<column name="eng_deletion_date" write="true"/>
+										<column name="eng_activation_date" write="true"/>
+										<column name="eng_deactivation_date" write="true"/>
+										<column name="source_id" write="true"/>
+										<column name="party_source_id" write="true"/>
+										<column name="src_state_license_id" write="true"/>
+										<column name="std_state_license_id" write="true"/>
+										<column name="src_status" write="true"/>
+										<column name="std_status" write="true"/>
+										<column name="src_state" write="true"/>
+										<column name="std_state" write="true"/>
+										<column name="src_qualification_type" write="true"/>
+										<column name="std_qualification_type" write="true"/>
+										<column name="src_issuer_name" write="true"/>
+										<column name="std_issuer_name" write="true"/>
+										<column name="src_board_certification_ind" write="true"/>
+										<column name="std_board_certification_ind" write="true"/>
+										<column name="src_taxonomy_id" write="true"/>
+										<column name="std_taxonomy_id" write="true"/>
+										<column name="src_degree_code" write="true"/>
+										<column name="std_degree_code" write="true"/>
+										<column name="src_period_end" write="true"/>
+										<column name="std_period_end" write="true"/>
+										<column name="src_training_type" write="true"/>
+										<column name="std_training_type" write="true"/>
+										<column name="src_spacialty" write="true"/>
+										<column name="std_spacialty" write="true"/>
+									</columns>
+								</entity>
+							</entities>
+						</instanceLayer>
+						<masterLayers>
+							<masterLayer name="masters">
+								<entities/>
+							</masterLayer>
+						</masterLayers>
+						<sorLayer>
+							<entities/>
+						</sorLayer>
+						<datasetLayer>
+							<entities/>
+						</datasetLayer>
+					</role>
+				</roles>
+			</rolesBean>
+		</securityProvider>
+	</securityProviders>
+</permissions>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflows>
+	<statuses>
+		<status id="1" label="For Resolution"/>
+		<status id="2" label="Resolved"/>
+		<status id="3" label="Closed"/>
+	</statuses>
+	<workflows>
+		<workflow id="simple">
+			<steps>
+				<step id="1" label="For Resolution" statusId="1">
+					<securityConstraints>
+						<constraint permission="view">
+							<conditions>
+								<condition class="com.ataccama.epp.contrib.security.UserIsInRole" roles="MDA_viewer,MDA_im_steward,MDA_superuser"/>
+							</conditions>
+						</constraint>
+						<constraint permission="edit">
+							<conditions>
+								<condition class="com.ataccama.epp.contrib.security.UserIsInRole" roles="MDA_im_steward,MDA_superuser"/>
+							</conditions>
+						</constraint>
+						<constraint permission="assign">
+							<conditions>
+								<condition class="com.ataccama.epp.contrib.security.UserIsInRole" roles="MDA_im_steward,MDA_superuser"/>
+							</conditions>
+						</constraint>
+						<constraint permission="delete">
+							<conditions>
+								<condition class="com.ataccama.epp.contrib.security.UserIsInRole" roles="MDA_superuser"/>
+							</conditions>
+						</constraint>
+					</securityConstraints>
+				</step>
+				<step id="2" label="Resolved" statusId="2">
+					<securityConstraints>
+						<constraint permission="view">
+							<conditions>
+								<condition class="com.ataccama.epp.contrib.security.UserIsInRole" roles="MDA_viewer,MDA_im_steward,MDA_superuser"/>
+							</conditions>
+						</constraint>
+						<constraint permission="edit">
+							<conditions>
+								<condition class="com.ataccama.epp.contrib.security.UserIsInRole" roles="MDA_superuser"/>
+							</conditions>
+						</constraint>
+						<constraint permission="assign">
+							<conditions>
+								<condition class="com.ataccama.epp.contrib.security.UserIsInRole" roles="MDA_im_steward,MDA_superuser"/>
+							</conditions>
+						</constraint>
+						<constraint permission="delete">
+							<conditions>
+								<condition class="com.ataccama.epp.contrib.security.UserIsInRole" roles="MDA_superuser"/>
+							</conditions>
+						</constraint>
+					</securityConstraints>
+				</step>
+				<step id="3" label="Closed" statusId="3">
+					<securityConstraints>
+						<constraint permission="view">
+							<conditions>
+								<condition class="com.ataccama.epp.contrib.security.UserIsInRole" roles="MDA_viewer,MDA_im_steward,MDA_superuser"/>
+							</conditions>
+						</constraint>
+						<constraint permission="edit">
+							<conditions>
+								<condition class="com.ataccama.epp.contrib.security.UserIsInRole" roles="MDA_superuser"/>
+							</conditions>
+						</constraint>
+						<constraint permission="assign">
+							<conditions>
+								<condition class="com.ataccama.epp.contrib.security.UserIsInRole" roles="MDA_superuser"/>
+							</conditions>
+						</constraint>
+						<constraint permission="delete">
+							<conditions>
+								<condition class="com.ataccama.epp.contrib.security.UserIsInRole" roles="MDA_superuser"/>
+							</conditions>
+						</constraint>
+					</securityConstraints>
+				</step>
+			</steps>
+			<transitions>
+				<transition id="resolve" label="Resolve" originId="1" targetId="2">
+					<conditions>
+						<condition class="com.ataccama.epp.contrib.security.UserIsInRole" roles="MDA_im_steward,MDA_superuser"/>
+					</conditions>
+					<validators/>
+					<postActions>
+						<postAction class="com.ataccama.epp.contrib.wf.postactions.CsvCallPostAction">
+							<urlResourceName>dqitPostAction</urlResourceName>
+						</postAction>
+					</postActions>
+				</transition>
+				<transition id="close" label="Close" originId="1" targetId="3">
+					<conditions>
+						<condition class="com.ataccama.epp.contrib.security.UserIsInRole" roles="MDA_superuser"/>
+					</conditions>
+					<validators/>
+					<postActions/>
+				</transition>				
+				<transition id="reopen" label="Reopen" originId="2" targetId="1">
+					<conditions>
+						<condition class="com.ataccama.epp.contrib.security.UserIsInRole" roles="MDA_im_steward,MDA_superuser"/>
+					</conditions>
+					<validators/>
+					<postActions/>
+				</transition>
+				<transition id="reopen" label="Reopen" originId="3" targetId="1">
+					<conditions>
+						<condition class="com.ataccama.epp.contrib.security.UserIsInRole" roles="MDA_superuser"/>
+					</conditions>
+					<validators/>
+					<postActions/>
+				</transition>
+				<transition id="close" label="Close" originId="2" targetId="3">
+					<conditions>
+						<condition class="com.ataccama.epp.contrib.security.UserIsInRole" roles="MDA_superuser"/>
+					</conditions>
+					<validators/>
+					<postActions/>
+				</transition>
+			</transitions>
+		</workflow>
+	</workflows>
+</workflows>

@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model>
+	<instanceLayer>
+		<entities>
+			<entity name="party">
+				<columns>
+					<column name="src_resource_id" origin="source" type="string" size="200"/>
+					<column name="std_resource_id" origin="clean" type="string" size="200"/>
+					<column name="src_resource_type" origin="source" type="string" size="30"/>
+					<column name="std_resource_type" origin="clean" type="string" size="30"/>
+					<column name="src_resource_name" origin="source" type="string" size="200"/>
+					<column name="std_resource_name" origin="clean" type="string" size="200"/>
+					<column name="src_is_active" origin="source" type="string" size="10"/>
+					<column name="std_is_active" origin="clean" type="string" size="10"/>
+					<column name="src_gender" origin="source" type="string" size="10"/>
+					<column name="std_gender" origin="clean" type="string" size="10"/>
+					<column name="cio_gender" origin="clean" type="string" size="10"/>
+					<column name="exp_gender" origin="clean" type="string" size="500"/>
+					<column name="sco_gender" origin="clean" type="integer"/>
+					<column name="src_birthdate" origin="source" type="string" size="100"/>
+					<column name="std_birthdate" origin="clean" type="day"/>
+					<column name="cio_birthdate" origin="clean" type="day"/>
+					<column name="exp_birthdate" origin="clean" type="string" size="500"/>
+					<column name="sco_birthdate" origin="clean" type="integer"/>
+					<column name="src_job_title" origin="source" type="string" size="100"/>
+					<column name="std_job_title" origin="clean" type="string" size="100"/>
+					<column name="src_first_name" origin="source" type="string" size="100"/>
+					<column name="std_first_name" origin="clean" type="string" size="100"/>
+					<column name="cio_first_name" origin="clean" type="string" size="100"/>
+					<column name="src_last_name" origin="source" type="string" size="100"/>
+					<column name="std_last_name" origin="clean" type="string" size="100"/>
+					<column name="cio_last_name" origin="clean" type="string" size="100"/>
+					<column name="src_middle_name" origin="source" type="string" size="100"/>
+					<column name="std_middle_name" origin="clean" type="string" size="100"/>
+					<column name="cio_middle_name" origin="clean" type="string" size="100"/>
+					<column name="src_prefix" origin="source" type="string" size="10"/>
+					<column name="std_prefix" origin="clean" type="string" size="10"/>
+					<column name="cio_prefix" origin="clean" type="string" size="10"/>
+					<column name="src_suffix" origin="source" type="string" size="10"/>
+					<column name="std_suffix" origin="clean" type="string" size="10"/>
+					<column name="cio_suffix" origin="clean" type="string" size="10"/>
+					<column name="src_name_use" origin="source" type="string" size="200"/>
+					<column name="std_name_use" origin="clean" type="string" size="200"/>
+					<column name="cio_name_use" origin="clean" type="string" size="200"/>
+					<column name="src_organization_name" origin="source" type="string" size="200"/>
+					<column name="std_organization_name" origin="clean" type="string" size="200"/>
+					<column name="cio_organization_name" origin="clean" type="string" size="200"/>
+					<column name="exp_organization_name" origin="clean" type="string" size="500"/>
+					<column name="sco_organization_name" origin="clean" type="integer"/>
+					<column name="src_provider_type" origin="source" type="string" size="30"/>
+					<column name="std_provider_type" origin="clean" type="string" size="30"/>
+					<column name="src_entity_type" origin="source" type="string" size="30"/>
+					<column name="std_entity_type" origin="clean" type="string" size="30"/>
+					<column name="src_provider_tier" origin="source" type="string" size="10"/>
+					<column name="std_provider_tier" origin="clean" type="string" size="10"/>
+					<column name="src_type" origin="source" type="string" size="30"/>
+					<column name="std_type" origin="clean" type="string" size="30"/>
+					<column name="cio_type" origin="clean" type="string" size="30"/>
+					<column name="exp_type" origin="clean" type="string" size="500"/>
+					<column name="sco_type" origin="clean" type="integer"/>
+				</columns>
+				<relationships/>
+				<cleansingOperation class="com.ataccama.nme.dqc.operations.CleansingPlan" planFileName="../engine/trans/party/party_clean.comp"/>
+			</entity>
+			<entity name="address">
+				<columns>
+					<column name="party_source_id" origin="source" type="string" size="200"/>
+					<column name="src_city" origin="source" type="string" size="100"/>
+					<column name="cio_city" origin="clean" type="string" size="100"/>
+					<column name="src_county" origin="source" type="string" size="100"/>
+					<column name="cio_county" origin="clean" type="string" size="100"/>
+					<column name="src_state" origin="source" type="string" size="100"/>
+					<column name="cio_state" origin="clean" type="string" size="100"/>
+					<column name="src_country" origin="source" type="string" size="100"/>
+					<column name="cio_country" origin="clean" type="string" size="100"/>
+					<column name="src_lattitude" origin="source" type="string" size="100"/>
+					<column name="std_lattitude" origin="clean" type="integer"/>
+					<column name="src_longitude" origin="source" type="string" size="100"/>
+					<column name="std_longitude" origin="clean" type="integer"/>
+					<column name="src_postal_code" origin="source" type="string" size="100"/>
+					<column name="cio_postal_code" origin="clean" type="string" size="100"/>
+					<column name="src_line_1" origin="source" type="string" size="100"/>
+					<column name="std_line_1" origin="clean" type="string" size="100"/>
+					<column name="cio_line_1" origin="clean" type="string" size="100"/>
+					<column name="exp_line_1" origin="clean" type="string" size="500"/>
+					<column name="sco_line_1" origin="clean" type="integer"/>
+					<column name="src_line_2" origin="source" type="string" size="100"/>
+					<column name="std_line_2" origin="clean" type="string" size="100"/>
+					<column name="cio_line_2" origin="clean" type="string" size="100"/>
+					<column name="exp_line_2" origin="clean" type="string" size="500"/>
+					<column name="sco_line_2" origin="clean" type="integer"/>
+					<column name="src_geo_return_code" origin="source" type="string" size="30"/>
+					<column name="std_geo_return_code" origin="clean" type="string" size="30"/>
+					<column name="src_metro_area" origin="source" type="string" size="100"/>
+					<column name="std_metro_area" origin="clean" type="string" size="100"/>
+					<column name="src_service_area_code" origin="source" type="string" size="30"/>
+					<column name="std_service_area_code" origin="clean" type="string" size="30"/>
+					<column name="src_provider_locn_mstr_id" origin="source" type="string" size="30"/>
+					<column name="src_geo_return_code_display" origin="source" type="string" size="100"/>
+					<column name="std_geo_return_code_display" origin="clean" type="string" size="100"/>
+					<column name="src_service_area_display" origin="source" type="string" size="100"/>
+					<column name="std_service_area_display" origin="clean" type="string" size="100"/>
+				</columns>
+				<relationships>
+					<rel foreignKeyColumn="party_source_id" name="party" parentColumn="source_id" parentEntity="party" reverseName="party_address">
+						<type class="com.ataccama.nme.engine.model.SameSystemRelationship"/>
+					</rel>
+				</relationships>
+				<cleansingOperation class="com.ataccama.nme.dqc.operations.CleansingPlan" planFileName="../engine/trans/address/address_clean.comp"/>
+			</entity>
+			<entity name="contact">
+				<columns>
+					<column name="party_source_id" origin="source" type="string" size="200"/>
+					<column name="src_contact_type" origin="source" type="string" size="100"/>
+					<column name="cio_contact_type" origin="clean" type="string" size="100"/>
+					<column name="src_value" origin="source" type="string" size="100"/>
+				</columns>
+				<relationships>
+					<rel foreignKeyColumn="party_source_id" name="party" parentColumn="source_id" parentEntity="party" reverseName="party_contact">
+						<type class="com.ataccama.nme.engine.model.SameSystemRelationship"/>
+					</rel>
+				</relationships>
+				<cleansingOperation class="com.ataccama.nme.dqc.operations.CleansingPlan" planFileName="../engine/trans/contact/contact_clean.comp"/>
+			</entity>
+			<entity name="rel_party2address">
+				<columns>
+					<column name="party_source_id" origin="source" type="string" size="200"/>
+					<column name="address_source_id" origin="source" type="string" size="200"/>
+					<column name="src_use" origin="source" type="string" size="100"/>
+					<column name="std_use" origin="clean" type="string" size="100"/>
+					<column name="src_type" origin="source" type="string" size="200"/>
+					<column name="std_type" origin="clean" type="string" size="200"/>
+					<column name="src_resource_id" origin="source" type="string" size="200"/>
+					<column name="std_resource_id" origin="clean" type="string" size="200"/>
+					<column name="src_resource_type" origin="source" type="string" size="30"/>
+					<column name="std_resource_type" origin="clean" type="string" size="30"/>
+					<column name="src_rel_type" origin="source" type="string" size="200"/>
+					<column name="std_rel_type" origin="clean" type="string" size="200"/>
+				</columns>
+				<relationships>
+					<rel foreignKeyColumn="party_source_id" name="party" parentColumn="source_id" parentEntity="party" reverseName="rel_party_address">
+						<type class="com.ataccama.nme.engine.model.SameSystemRelationship"/>
+					</rel>
+					<rel foreignKeyColumn="address_source_id" name="address" parentColumn="source_id" parentEntity="address" reverseName="rel_party_address">
+						<type class="com.ataccama.nme.engine.model.SameSystemRelationship"/>
+					</rel>
+				</relationships>
+				<cleansingOperation class="com.ataccama.nme.dqc.operations.CleansingPlan" planFileName="../engine/trans/rel_party2address/rel_party2address_clean.comp"/>
+			</entity>
+			<entity name="rel_party2party">
+				<columns>
+					<column name="parent_source_id" origin="source" type="string" size="200"/>
+					<column name="child_source_id" origin="source" type="string" size="200"/>
+					<column name="src_provider_affiliation_typ" origin="source" type="string" size="100"/>
+					<column name="std_provider_affiliation_typ" origin="clean" type="string" size="100"/>
+					<column name="src_p2p_valid_from" origin="source" type="string" size="100"/>
+					<column name="std_p2p_valid_from" origin="clean" type="day"/>
+					<column name="src_p2p_valid_to" origin="source" type="string" size="100"/>
+					<column name="std_p2p_valid_to" origin="clean" type="day"/>
+					<column name="src_rel_type" origin="source" type="string" size="100"/>
+					<column name="std_rel_type" origin="clean" type="string" size="100"/>
+				</columns>
+				<relationships>
+					<rel foreignKeyColumn="child_source_id" name="party_child" parentColumn="source_id" parentEntity="party" reverseName="rel_party_party_parent">
+						<type class="com.ataccama.nme.engine.model.SameSystemRelationship"/>
+					</rel>
+					<rel foreignKeyColumn="parent_source_id" name="party_parent" parentColumn="source_id" parentEntity="party" reverseName="rel_party_party_child">
+						<type class="com.ataccama.nme.engine.model.SameSystemRelationship"/>
+					</rel>
+				</relationships>
+				<cleansingOperation class="com.ataccama.nme.dqc.operations.CleansingPlan" planFileName="../engine/trans/rel_party2party/rel_party2party_clean.comp"/>
+			</entity>
+			<entity name="rel_party2contact">
+				<columns>
+					<column name="party_source_id" origin="source" type="string" size="200"/>
+					<column name="contact_source_id" origin="source" type="string" size="200"/>
+					<column name="src_rel_type" origin="source" type="string" size="200"/>
+					<column name="std_rel_type" origin="clean" type="string" size="200"/>
+					<column name="src_use" origin="source" type="string" size="100"/>
+					<column name="std_use" origin="clean" type="string" size="100"/>
+					<column name="src_rank" origin="source" type="string" size="100"/>
+					<column name="std_rank" origin="clean" type="integer"/>
+				</columns>
+				<relationships>
+					<rel foreignKeyColumn="party_source_id" name="party" parentColumn="source_id" parentEntity="party" reverseName="rel_party_contact">
+						<type class="com.ataccama.nme.engine.model.SameSystemRelationship"/>
+					</rel>
+					<rel foreignKeyColumn="contact_source_id" name="contact" parentColumn="source_id" parentEntity="contact" reverseName="rel_party_contact">
+						<type class="com.ataccama.nme.engine.model.SameSystemRelationship"/>
+					</rel>
+				</relationships>
+				<cleansingOperation class="com.ataccama.nme.dqc.operations.CleansingPlan" planFileName="../engine/trans/rel_party2contact/rel_party2contact_clean.comp"/>
+			</entity>
+			<entity name="id_document">
+				<columns>
+					<column name="party_source_id" origin="source" type="string" size="200"/>
+					<column name="src_use" origin="source" type="string" size="100"/>
+					<column name="std_use" origin="clean" type="string" size="100"/>
+					<column name="src_type" origin="source" type="string" size="200"/>
+					<column name="std_type" origin="clean" type="string" size="200"/>
+					<column name="src_value" origin="source" type="string" size="100"/>
+				</columns>
+				<relationships>
+					<rel foreignKeyColumn="party_source_id" name="party" parentColumn="source_id" parentEntity="party" reverseName="party_id_document">
+						<type class="com.ataccama.nme.engine.model.SameSystemRelationship"/>
+					</rel>
+				</relationships>
+				<cleansingOperation class="com.ataccama.nme.dqc.operations.CleansingPlan" planFileName="../engine/trans/id_document/id_document_clean.comp"/>
+			</entity>
+			<entity name="value_based_program">
+				<columns>
+					<column name="party_source_id" origin="source" type="string" size="200"/>
+					<column name="src_value_based_program_id" origin="source" type="string" size="200"/>
+					<column name="std_value_based_program_id" origin="clean" type="string" size="200"/>
+					<column name="src_member_select_attr_ind" origin="source" type="string" size="10"/>
+					<column name="std_member_select_attr_ind" origin="clean" type="string" size="10"/>
+				</columns>
+				<relationships>
+					<rel foreignKeyColumn="party_source_id" name="party" parentColumn="source_id" parentEntity="party" reverseName="party_value_based_program">
+						<type class="com.ataccama.nme.engine.model.SameSystemRelationship"/>
+					</rel>
+				</relationships>
+				<cleansingOperation class="com.ataccama.nme.dqc.operations.CleansingPlan" planFileName="../engine/trans/value_based_program/value_based_program_clean.comp"/>
+			</entity>
+			<entity name="licensese">
+				<columns>
+					<column name="party_source_id" origin="source" type="string" size="200"/>
+					<column name="src_entity_code" origin="source" type="string" size="100"/>
+					<column name="std_entity_code" origin="clean" type="string" size="100"/>
+					<column name="src_resource_type" origin="source" type="string" size="30"/>
+					<column name="std_resource_type" origin="clean" type="string" size="30"/>
+					<column name="src_resource_id" origin="source" type="string" size="200"/>
+					<column name="std_resource_id" origin="clean" type="string" size="200"/>
+					<column name="src_hierarchy_code" origin="source" type="string" size="100"/>
+					<column name="std_hierarchy_code" origin="clean" type="string" size="100"/>
+				</columns>
+				<relationships>
+					<rel foreignKeyColumn="party_source_id" name="party" parentColumn="source_id" parentEntity="party" reverseName="party_license">
+						<type class="com.ataccama.nme.engine.model.SameSystemRelationship"/>
+					</rel>
+				</relationships>
+				<cleansingOperation class="com.ataccama.nme.dqc.operations.CleansingPlan" planFileName="../engine/trans/licensese/licensese_clean.comp"/>
+			</entity>
+			<entity name="alternate_name">
+				<columns>
+					<column name="party_source_id" origin="source" type="string" size="200"/>
+					<column name="src_first_name" origin="source" type="string" size="100"/>
+					<column name="std_first_name" origin="clean" type="string" size="100"/>
+					<column name="cio_first_name" origin="clean" type="string" size="100"/>
+					<column name="src_last_name" origin="source" type="string" size="100"/>
+					<column name="std_last_name" origin="clean" type="string" size="100"/>
+					<column name="cio_last_name" origin="clean" type="string" size="100"/>
+					<column name="src_middle_name" origin="source" type="string" size="100"/>
+					<column name="std_middle_name" origin="clean" type="string" size="100"/>
+					<column name="cio_middle_name" origin="clean" type="string" size="100"/>
+					<column name="src_prefix" origin="source" type="string" size="10"/>
+					<column name="std_prefix" origin="clean" type="string" size="10"/>
+					<column name="cio_prefix" origin="clean" type="string" size="10"/>
+					<column name="src_suffix" origin="source" type="string" size="10"/>
+					<column name="std_suffix" origin="clean" type="string" size="10"/>
+					<column name="cio_suffix" origin="clean" type="string" size="10"/>
+					<column name="src_name_use" origin="source" type="string" size="200"/>
+					<column name="std_name_use" origin="clean" type="string" size="200"/>
+					<column name="cio_name_use" origin="clean" type="string" size="200"/>
+				</columns>
+				<relationships>
+					<rel foreignKeyColumn="party_source_id" name="party" parentColumn="source_id" parentEntity="party" reverseName="party_alt_name">
+						<type class="com.ataccama.nme.engine.model.SameSystemRelationship"/>
+					</rel>
+				</relationships>
+				<cleansingOperation class="com.ataccama.nme.dqc.operations.CleansingPlan" planFileName="../engine/trans/alternate_name/alternate_name_clean.comp"/>
+			</entity>
+			<entity name="qualification">
+				<columns>
+					<column name="party_source_id" origin="source" type="string" size="200"/>
+					<column name="src_state_license_id" origin="source" type="string" size="100"/>
+					<column name="std_state_license_id" origin="clean" type="string" size="100"/>
+					<column name="src_status" origin="source" type="string" size="30"/>
+					<column name="std_status" origin="clean" type="string" size="30"/>
+					<column name="src_state" origin="source" type="string" size="100"/>
+					<column name="std_state" origin="clean" type="string" size="100"/>
+					<column name="src_qualification_type" origin="source" type="string" size="100"/>
+					<column name="std_qualification_type" origin="clean" type="string" size="100"/>
+					<column name="src_issuer_name" origin="source" type="string" size="200"/>
+					<column name="std_issuer_name" origin="clean" type="string" size="200"/>
+					<column name="src_board_certification_ind" origin="source" type="string" size="30"/>
+					<column name="std_board_certification_ind" origin="clean" type="string" size="30"/>
+					<column name="src_taxonomy_id" origin="source" type="string" size="200"/>
+					<column name="std_taxonomy_id" origin="clean" type="string" size="200"/>
+					<column name="src_degree_code" origin="source" type="string" size="30"/>
+					<column name="std_degree_code" origin="clean" type="string" size="30"/>
+					<column name="src_period_end" origin="source" type="string" size="100"/>
+					<column name="std_period_end" origin="clean" type="datetime"/>
+					<column name="src_training_type" origin="source" type="string" size="30"/>
+					<column name="std_training_type" origin="clean" type="string" size="30"/>
+					<column name="src_spacialty" origin="source" type="string" size="200"/>
+					<column name="std_spacialty" origin="clean" type="string" size="200"/>
+				</columns>
+				<relationships>
+					<rel foreignKeyColumn="party_source_id" name="party" parentColumn="source_id" parentEntity="party" reverseName="party_qualification">
+						<type class="com.ataccama.nme.engine.model.SameSystemRelationship"/>
+					</rel>
+				</relationships>
+				<cleansingOperation class="com.ataccama.nme.dqc.operations.CleansingPlan" planFileName="../engine/trans/qualification/qualification_clean.comp"/>
+			</entity>
+		</entities>
+		<sourceSystems>
+			<system name="crm">
+				<instanceMappings/>
+			</system>
+		</sourceSystems>
+	</instanceLayer>
+	<masterLayers>
+		<masterLayer name="masters">
+			<entities/>
+			<externalEntities/>
+		</masterLayer>
+	</masterLayers>
+</model>

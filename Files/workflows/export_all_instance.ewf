@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<workflow xmlns:vis="http://www.ataccama.com/purity/visual" version="12.6.3">
+	<continueOnFailure>true</continueOnFailure>
+	<groups/>
+	<multiplicity>0</multiplicity>
+	<name>Complete Processing</name>
+	<variables>
+		<derived/>
+		<input/>
+	</variables>
+	<tasks>
+		<task acceptMode="ALL_VALID" name="Perform full instance batch export (CRM system data only)" id="031_BatchExport" priority="0">
+			<executable operationName="full_instance_crm_export" class="com.ataccama.nme.ext.workflow.RunNmeBatchExport">
+				<parameters/>
+			</executable>
+			<vis:visualConstraints bounds="85,191,-1,-1"/>
+		</task>
+		<task acceptMode="ALL_VALID" name="Perform full instance batch export (CRM + Life systems)" id="034_BatchExport" priority="0">
+			<executable operationName="full_instance_export" class="com.ataccama.nme.ext.workflow.RunNmeBatchExport">
+				<parameters/>
+			</executable>
+			<vis:visualConstraints bounds="85,47,-1,-1"/>
+		</task>
+	</tasks>
+</workflow>

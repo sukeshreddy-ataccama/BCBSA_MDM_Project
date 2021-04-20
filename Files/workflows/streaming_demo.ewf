@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<workflow xmlns:comm="http://www.ataccama.com/purity/comment" xmlns:vis="http://www.ataccama.com/purity/visual" version="12.6.3">
+	<continueOnFailure>false</continueOnFailure>
+	<groups/>
+	<multiplicity>1</multiplicity>
+	<variables>
+		<derived>
+			<ewfDerivedVariable name="MESSAGE_SET">
+				<expression>iif (
+	isNumber(MESSAGE)
+	, MESSAGE
+	, &quot;&quot;
+)</expression>
+				<comm:comment>Number of message set to be processed</comm:comment>
+			</ewfDerivedVariable>
+			<ewfDerivedVariable expression="&#39;crm_customer_stream_&#39; + MESSAGE_SET + &#39;.csv&#39;" name="INPUT_FILE">
+				<comm:comment>Name of the input message set source file</comm:comment>
+			</ewfDerivedVariable>
+			<ewfDerivedVariable expression="ewfGetPathVariable(&#39;DATA&#39;) + &#39;/in/streaming/&#39; + INPUT_FILE" name="PATH">
+				<comm:comment>Path to the input message set source file</comm:comment>
+			</ewfDerivedVariable>
+			<ewfDerivedVariable expression="&#39;../&#39; + PATH" name="INPUT_FILE_PATH">
+				<comm:comment>Adjustment for relative path depth</comm:comment>
+			</ewfDerivedVariable>
+		</derived>
+		<input>
+			<ewfInputVariable name="MESSAGE"/>
+		</input>
+	</variables>
+	<tasks>
+		<task mode="NORMAL" acceptMode="ALL_VALID" disabled="false" id="001_Check_The_Input_File" priority="0">
+			<executable class="com.ataccama.adt.task.exec.EwfFileOperationTask">
+				<operation class="com.ataccama.adt.file.operations.EwfExistFileOperation" sourceFile="pathvar://DATA/in/streaming/${INPUT_FILE}"/>
+			</executable>
+			<vis:visualConstraints bounds="172,124,-1,-1"/>
+		</task>
+		<task mode="NORMAL" acceptMode="ALL_VALID" disabled="false" id="010_Push_Data_Messages_To_JMS" priority="0">
+			<executable class="com.ataccama.adt.task.exec.EwfDqcTask" planFile="../test/streaming/prepare_streaming_data.comp">
+				<parameters>
+					<parameter name="INPUT_FILE">
+						<expression>INPUT_FILE_PATH
+//ewfGetPathVariable(&#39;DATA&#39;) + &#39;/in/streaming/&#39; + INPUT_FILE</expression>
+					</parameter>
+				</parameters>
+			</executable>
+			<vis:visualConstraints bounds="368,124,-1,-1"/>
+		</task>
+	</tasks>
+	<links>
+		<link disabled="false" from="001_Check_The_Input_File" to="010_Push_Data_Messages_To_JMS" type="NORMAL">
+			<vis:visualConstraints>
+				<vis:bendpoints/>
+			</vis:visualConstraints>
+		</link>
+	</links>
+</workflow>

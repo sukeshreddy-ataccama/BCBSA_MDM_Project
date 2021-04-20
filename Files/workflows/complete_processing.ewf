@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<workflow xmlns:vis="http://www.ataccama.com/purity/visual" version="12.6.3">
+	<continueOnFailure>true</continueOnFailure>
+	<groups/>
+	<multiplicity>0</multiplicity>
+	<name>Complete Processing</name>
+	<variables>
+		<derived/>
+		<input/>
+	</variables>
+	<tasks>
+		<task acceptMode="ALL_VALID" name="Perform CRM + Life systems full data load" id="021_Run_MultiLoad" priority="0">
+			<executable class="com.ataccama.nme.ext.workflow.RunNmeMultiLoad" operationNames="crm_full,life_full">
+				<parameters/>
+			</executable>
+			<vis:visualConstraints bounds="50,192,-1,-1"/>
+		</task>
+		<task acceptMode="ALL_VALID" name="Perform full instance batch export (CRM system data only)" id="031_BatchExport" priority="0">
+			<executable operationName="full_instance_crm_export" class="com.ataccama.nme.ext.workflow.RunNmeBatchExport">
+				<parameters/>
+			</executable>
+			<vis:visualConstraints bounds="255,144,-1,-1"/>
+		</task>
+		<task acceptMode="ALL_VALID" name="Perform delta instance and full master data batch export at once" id="032_BatchExport" priority="0">
+			<executable operationName="complex_export" class="com.ataccama.nme.ext.workflow.RunNmeBatchExport">
+				<parameters/>
+			</executable>
+			<vis:visualConstraints bounds="264,414,-1,-1"/>
+		</task>
+		<task acceptMode="ALL_VALID" name="Perform full masters layer batch export (golden records)" id="033_BatchExport" priority="0">
+			<executable operationName="full_master_export" class="com.ataccama.nme.ext.workflow.RunNmeBatchExport">
+				<parameters/>
+			</executable>
+			<vis:visualConstraints bounds="259,33,-1,-1"/>
+		</task>
+		<task acceptMode="ALL_VALID" name="Perform full instance batch export (CRM + Life systems)" id="034_BatchExport" priority="0">
+			<executable operationName="full_instance_export" class="com.ataccama.nme.ext.workflow.RunNmeBatchExport">
+				<parameters/>
+			</executable>
+			<vis:visualConstraints bounds="258,277,-1,-1"/>
+		</task>
+		<task acceptMode="AT_LEAST_ONE" name="Perform CRM system delta load (data increment)" id="041_Run_Delta_Load" priority="0">
+			<executable class="com.ataccama.nme.ext.workflow.RunNmeMultiLoad" operationNames="crm_delta">
+				<parameters/>
+			</executable>
+			<vis:visualConstraints bounds="501,213,-1,-1"/>
+		</task>
+	</tasks>
+	<links>
+		<link from="021_Run_MultiLoad" to="031_BatchExport" type="NORMAL"/>
+		<link from="021_Run_MultiLoad" to="032_BatchExport" type="NORMAL"/>
+		<link from="021_Run_MultiLoad" to="033_BatchExport" type="NORMAL"/>
+		<link from="021_Run_MultiLoad" to="034_BatchExport" type="NORMAL"/>
+		<link from="031_BatchExport" to="041_Run_Delta_Load" type="NORMAL"/>
+		<link from="032_BatchExport" to="041_Run_Delta_Load" type="NORMAL"/>
+		<link from="033_BatchExport" to="041_Run_Delta_Load" type="NORMAL"/>
+		<link from="034_BatchExport" to="041_Run_Delta_Load" type="NORMAL"/>
+		<link from="021_Run_MultiLoad" to="041_Run_Delta_Load" type="ERROR"/>
+	</links>
+</workflow>

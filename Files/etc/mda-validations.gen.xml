@@ -1,0 +1,16 @@
+<validations>
+    <defaultThresholds highDQThreshold="10000" infoWarningThreshold="1000" lowDQThreshold="10000000" warningErrorThreshold="10000000"/>
+    <instanceLayer>
+        <entities/>
+    </instanceLayer>
+    <masterLayers/>
+    <sorLayer>
+        <entities/>
+    </sorLayer>
+    <messagesMappings class="com.ataccama.mda.core.validations.MdaValidationsFileMessagesMappings">
+        <messagesFiles>
+            <messageFile fileName="mda-validation_messages.properties" language="en"/>
+        </messagesFiles>
+    </messagesMappings>
+    <keysTokenizer/>
+</validations>

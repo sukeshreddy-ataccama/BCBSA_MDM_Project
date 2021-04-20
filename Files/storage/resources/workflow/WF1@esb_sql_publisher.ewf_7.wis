@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<WorkflowInstanceState>
+	<forcedResume>false</forcedResume>
+	<hostInfo hostName="PZACEK" hostPort="7777" hostAddress="192.168.99.1"/>
+	<id>7</id>
+	<linkEvaluations>
+		<linkEvaluationBean evaluation="REJECTED" sourceId="01_start" targetId="11_create_table"/>
+		<linkEvaluationBean evaluation="REJECTED" sourceId="01_start" targetId="10_create_table"/>
+	</linkEvaluations>
+	<started>2020-05-27 22:04:42</started>
+	<state>FINISHED_OK</state>
+	<stopped>2020-05-27 22:04:43</stopped>
+	<taskVariables/>
+	<tasks>
+		<workflowTaskPersistModelBean id="11_create_table" state="SKIPPED">
+			<compensationStates/>
+		</workflowTaskPersistModelBean>
+		<workflowTaskPersistModelBean stopped="2020-05-27 22:04:43" started="2020-05-27 22:04:43" id="01_start" state="FINISHED_OK">
+			<compensationStates/>
+		</workflowTaskPersistModelBean>
+		<workflowTaskPersistModelBean id="10_create_table" state="SKIPPED">
+			<compensationStates/>
+		</workflowTaskPersistModelBean>
+	</tasks>
+	<wfTimestamp>1970-01-01 01:00:00</wfTimestamp>
+	<wfVariables>
+		<variableBean name="TASK_NAME" type="STRING" value="setMasterOverrides"/>
+		<variableBean name="TASK_ID" type="STRING" value="5"/>
+		<variableBean name="ewf_execution_id" type="STRING" value="7"/>
+		<variableBean name="ewf_workflow_id" type="STRING" value="WF1:esb_sql_publisher.ewf"/>
+		<variableBean name="ewf_private_folder" type="STRING" value="C:\_Git\_examples\content\modules\MDC_Models\src\GeneralMDM\Files\storage\resources\workflow\wfinst_7"/>
+		<variableBean name="ewf_user_name" type="STRING"/>
+	</wfVariables>
+	<workflowId>WF1:esb_sql_publisher.ewf</workflowId>
+</WorkflowInstanceState>

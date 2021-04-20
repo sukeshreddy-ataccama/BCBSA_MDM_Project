@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<loggingConfig>
+	<appenders>
+        <iLogAppenderFactory class="com.ataccama.dqc.commons.logging.factories.Slf4jLogAppenderFactory" name="slf4j"/>
+	</appenders>
+	<loggingRules>
+        <!-- Redirect all logging to slf4j -->
+        <loggingRule level="INFO" appender="slf4j">
+            <trace/>
+        </loggingRule>
+	</loggingRules>
+</loggingConfig>

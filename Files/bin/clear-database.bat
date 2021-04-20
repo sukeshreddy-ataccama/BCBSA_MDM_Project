@@ -1,0 +1,12 @@
+if exist ..\storage\eventHandler						rmdir /s /q ..\storage\eventHandler
+if exist ..\storage\eventHandlerSoR						rmdir /s /q ..\storage\eventHandlerSoR
+if exist ..\storage\eventHandlerSoR_flowPublisher		rmdir /s /q ..\storage\eventHandlerSoR_flowPublisher
+if exist ..\storage\elastic								rmdir /s /q ..\storage\elastic
+if exist ..\storage\elasticNodeClient					rmdir /s /q ..\storage\elasticNodeClient
+if exist ..\storage\derby								rmdir /s /q ..\storage\derby
+if exist ..\storage\indexes								rmdir /s /q ..\storage\indexes
+if exist ..\storage\mdaSynch							rmdir /s /q ..\storage\mdaSynch
+if exist ..\storage\resources							rmdir /s /q ..\storage\resources
+if exist ..\storage\history								rmdir /s /q ..\storage\history
+if exist ..\storage\jms									rmdir /s /q ..\storage\jms
+if exist ..\storage\*.log								del /s /q ..\storage\*.log

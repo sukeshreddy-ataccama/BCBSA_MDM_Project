@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<workflow xmlns:vis="http://www.ataccama.com/purity/visual" version="12.6.3">
+	<continueOnFailure>true</continueOnFailure>
+	<groups/>
+	<multiplicity>1</multiplicity>
+	<variables>
+		<derived/>
+		<input/>
+	</variables>
+	<tasks>
+		<task mode="NORMAL" acceptMode="AT_LEAST_ONE" name="external.insured_events" disabled="false" id="external.insured_events" priority="0">
+			<executable connectionName="external" class="com.ataccama.adt.task.exec.EwfSqlTask">
+				<query>CREATE TABLE &quot;EXTERNAL&quot;.INSURED_EVENTS (
+	SIN INTEGER,
+	CLAIMANT VARCHAR(255),
+	STATUS VARCHAR(255),
+	INSURER VARCHAR(255),
+	INCIDENT_DATE TIMESTAMP,
+	EXTERNAL_LINK VARCHAR(255),
+	COMPENSATION INTEGER,
+	CURRENCY VARCHAR(255),
+	PAYMENT_DATE TIMESTAMP
+)</query>
+			</executable>
+			<vis:visualConstraints bounds="374,107,-1,-1"/>
+		</task>
+		<task mode="NORMAL" acceptMode="AT_LEAST_ONE" name="external.interactions" disabled="false" id="external.interactions" priority="0">
+			<executable connectionName="external" class="com.ataccama.adt.task.exec.EwfSqlTask">
+				<query>CREATE TABLE &quot;EXTERNAL&quot;.INTERACTIONS (
+	CONTACT VARCHAR(255),
+	TYPE VARCHAR(255),
+	RESULT VARCHAR(255),
+	&quot;TIME&quot; TIMESTAMP
+)</query>
+			</executable>
+			<vis:visualConstraints bounds="367,360,-1,-1"/>
+		</task>
+		<task mode="NORMAL" acceptMode="ALL_VALID" name="load_external_entities.plan" disabled="false" id="load_external_entities.plan" priority="0">
+			<executable parallelismLevel="1" class="com.ataccama.adt.task.exec.EwfDqcTask" planFile="pathvar://DATA/in/external/load_external_entities.plan"/>
+			<vis:visualConstraints bounds="652,232,-1,-1"/>
+		</task>
+		<task mode="NORMAL" acceptMode="ALL_VALID" disabled="false" id="Synchronize Tasks" priority="0">
+			<executable class="com.ataccama.adt.task.exec.EwfSynchronizerTask"/>
+			<vis:visualConstraints bounds="211,232,-1,-1"/>
+		</task>
+		<task mode="NORMAL" acceptMode="ALL_VALID" name="drop external.interactions" disabled="false" id="drop external.interactions" priority="0">
+			<executable query="DROP TABLE &quot;EXTERNAL&quot;.INTERACTIONS" connectionName="external" class="com.ataccama.adt.task.exec.EwfSqlTask"/>
+			<vis:visualConstraints bounds="46,369,-1,-1"/>
+		</task>
+		<task mode="NORMAL" acceptMode="ALL_VALID" name="drop external.insured_events" disabled="false" id="drop external.insured_events" priority="0">
+			<executable query="DROP TABLE &quot;EXTERNAL&quot;.INSURED_EVENTS" connectionName="external" class="com.ataccama.adt.task.exec.EwfSqlTask"/>
+			<vis:visualConstraints bounds="53,116,-1,-1"/>
+		</task>
+		<task mode="NORMAL" acceptMode="ALL_VALID" disabled="false" id="Synchronize Tasks 2" priority="0">
+			<executable class="com.ataccama.adt.task.exec.EwfSynchronizerTask"/>
+			<vis:visualConstraints bounds="201,490,-1,-1"/>
+		</task>
+	</tasks>
+	<links>
+		<link disabled="false" from="external.insured_events" to="load_external_entities.plan" type="NORMAL">
+			<vis:visualConstraints>
+				<vis:bendpoints/>
+			</vis:visualConstraints>
+		</link>
+		<link disabled="false" from="external.interactions" to="load_external_entities.plan" type="NORMAL">
+			<vis:visualConstraints>
+				<vis:bendpoints/>
+			</vis:visualConstraints>
+		</link>
+		<link disabled="false" from="drop external.insured_events" to="external.insured_events" type="NORMAL">
+			<vis:visualConstraints>
+				<vis:bendpoints/>
+			</vis:visualConstraints>
+		</link>
+		<link disabled="false" from="drop external.insured_events" to="Synchronize Tasks" type="ERROR">
+			<vis:visualConstraints>
+				<vis:bendpoints/>
+			</vis:visualConstraints>
+		</link>
+		<link disabled="false" from="Synchronize Tasks" to="external.insured_events" type="NORMAL">
+			<vis:visualConstraints>
+				<vis:bendpoints/>
+			</vis:visualConstraints>
+		</link>
+		<link disabled="false" from="drop external.interactions" to="external.interactions" type="NORMAL">
+			<vis:visualConstraints>
+				<vis:bendpoints/>
+			</vis:visualConstraints>
+		</link>
+		<link disabled="false" from="drop external.interactions" to="Synchronize Tasks 2" type="ERROR">
+			<vis:visualConstraints>
+				<vis:bendpoints/>
+			</vis:visualConstraints>
+		</link>
+		<link disabled="false" from="Synchronize Tasks 2" to="external.interactions" type="NORMAL">
+			<vis:visualConstraints>
+				<vis:bendpoints/>
+			</vis:visualConstraints>
+		</link>
+	</links>
+</workflow>
